@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" x-data>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <title>Pokemon TCG Pocket Draw Simulator</title>
+
+    <!-- Meta Properties -->
+    <meta property="og:title" content="Pokemon TCG Pocket Draw Simulator" />
+    <meta property="og:type" content="website" />
+    <meta
+      name="twitter:card"
+      content="A tool for simulating how hard it is to draw and play specific combinations of cards."
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Pico.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.conditional.min.css"
+    />
+
+    <!-- choices.js -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css"
+    />
+
+    <!-- Custom app styles -->
+    <link rel="stylesheet" href="./css/app.css" />
+
+    <!-- Alpine.js -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <!-- choices.js -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
+
+    <!-- Our App JS (the simulator) -->
+    <script src="./js/app.js"></script>
+  </head>
+
+  <body>
+    <main class="container">
+      <hgroup>
+        <h1>Pokemon TCG Pocket Draw Simulator</h1>
+        <h2>Simulate drawing and playing specific combinations of cards</h2>
+      </hgroup>
+
+      <article id="content">
+        <form
+          x-data="pokemonSimulator()"
+          x-init="initChoices()"
+          @submit.prevent="runSimulation"
+        >
+          <fieldset>
+            <legend>Select Cards for Your Deck</legend>
+            <label for="deckSelection">Pick deck cards (1x or 2x):</label>
+            <select id="deckSelection" multiple x-ref="deckSelect"></select>
+          </fieldset>
+
+          <fieldset>
+            <legend>Target Cards</legend>
+            <label for="targetCards"
+              >Pick which base card(s) you’re aiming for:</label
+            >
+            <select id="targetCards" multiple x-ref="targetCards"></select>
+          </fieldset>
+
+          <button type="submit">Run Simulation</button>
+        </form>
+      </article>
+    </main>
+  </body>
+</html>
