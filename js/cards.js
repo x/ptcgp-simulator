@@ -47,7 +47,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Bulbasaur"
 },
 {
   "category": "Pokemon",
@@ -74,7 +74,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Ivysaur"
 },
 {
   "category": "Pokemon",
@@ -110,7 +110,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Ivysaur"
 },
 {
   "category": "Pokemon",
@@ -157,7 +157,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Caterpie"
 },
 {
   "category": "Pokemon",
@@ -182,7 +182,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Metapod"
 },
 {
   "category": "Pokemon",
@@ -228,7 +228,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Weedle"
 },
 {
   "category": "Pokemon",
@@ -251,7 +251,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Kakuna"
 },
 {
   "category": "Pokemon",
@@ -298,7 +298,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Oddish"
 },
 {
   "category": "Pokemon",
@@ -324,7 +324,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Gloom"
 },
 {
   "category": "Pokemon",
@@ -373,7 +373,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Paras"
 },
 {
   "category": "Pokemon",
@@ -420,7 +420,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Venonat"
 },
 {
   "category": "Pokemon",
@@ -467,7 +467,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Bellsprout"
 },
 {
   "category": "Pokemon",
@@ -491,7 +491,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Weepinbell"
 },
 {
   "category": "Pokemon",
@@ -538,7 +538,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Exeggcute"
 },
 {
   "category": "Pokemon",
@@ -562,7 +562,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Exeggcute"
 },
 {
   "category": "Pokemon",
@@ -681,7 +681,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Cottonee"
 },
 {
   "category": "Pokemon",
@@ -730,7 +730,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Petilil"
 },
 {
   "category": "Pokemon",
@@ -777,7 +777,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Skiddo"
 },
 {
   "category": "Pokemon",
@@ -826,7 +826,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Charmander"
 },
 {
   "category": "Pokemon",
@@ -853,7 +853,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Charmeleon"
 },
 {
   "category": "Pokemon",
@@ -889,7 +889,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Charmeleon"
 },
 {
   "category": "Pokemon",
@@ -937,7 +937,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Vulpix"
 },
 {
   "category": "Pokemon",
@@ -987,7 +987,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Growlithe"
 },
 {
   "category": "Pokemon",
@@ -1013,7 +1013,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Growlithe"
 },
 {
   "category": "Pokemon",
@@ -1059,7 +1059,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Ponyta"
 },
 {
   "category": "Pokemon",
@@ -1109,7 +1109,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Eevee"
 },
 {
   "category": "Pokemon",
@@ -1237,7 +1237,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Salandit"
 },
 {
   "category": "Pokemon",
@@ -1287,7 +1287,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Sizzlipede"
 },
 {
   "category": "Pokemon",
@@ -1334,7 +1334,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Squirtle"
 },
 {
   "category": "Pokemon",
@@ -1359,7 +1359,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Wartortle"
 },
 {
   "category": "Pokemon",
@@ -1393,7 +1393,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Wartortle"
 },
 {
   "category": "Pokemon",
@@ -1441,7 +1441,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Psyduck"
 },
 {
   "category": "Pokemon",
@@ -1488,7 +1488,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Poliwag"
 },
 {
   "category": "Pokemon",
@@ -1513,7 +1513,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Poliwhirl"
 },
 {
   "category": "Pokemon",
@@ -1561,7 +1561,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Tentacool"
 },
 {
   "category": "Pokemon",
@@ -1610,7 +1610,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Seel"
 },
 {
   "category": "Pokemon",
@@ -1658,7 +1658,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Shellder"
 },
 {
   "category": "Pokemon",
@@ -1708,7 +1708,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Krabby"
 },
 {
   "category": "Pokemon",
@@ -1756,7 +1756,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Horsea"
 },
 {
   "category": "Pokemon",
@@ -1803,7 +1803,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Goldeen"
 },
 {
   "category": "Pokemon",
@@ -1849,7 +1849,7 @@ const cards = [
     }
   ],
   "retreat": 0,
-  "evolveFrom": null
+  "evolveFrom": "Staryu"
 },
 {
   "category": "Pokemon",
@@ -1873,7 +1873,7 @@ const cards = [
     }
   ],
   "retreat": 0,
-  "evolveFrom": null
+  "evolveFrom": "Staryu"
 },
 {
   "category": "Pokemon",
@@ -1923,7 +1923,7 @@ const cards = [
     }
   ],
   "retreat": 4,
-  "evolveFrom": null
+  "evolveFrom": "Magikarp"
 },
 {
   "category": "Pokemon",
@@ -1973,7 +1973,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Eevee"
 },
 {
   "category": "Pokemon",
@@ -1996,7 +1996,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Helix Fossil"
 },
 {
   "category": "Pokemon",
@@ -2022,7 +2022,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Omanyte"
 },
 {
   "category": "Pokemon",
@@ -2131,7 +2131,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Ducklett"
 },
 {
   "category": "Pokemon",
@@ -2177,7 +2177,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Froakie"
 },
 {
   "category": "Pokemon",
@@ -2201,7 +2201,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Frogadier"
 },
 {
   "category": "Pokemon",
@@ -2297,7 +2297,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Snom"
 },
 {
   "category": "Pokemon",
@@ -2346,7 +2346,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Pikachu"
 },
 {
   "category": "Pokemon",
@@ -2371,7 +2371,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Pikachu"
 },
 {
   "category": "Pokemon",
@@ -2420,7 +2420,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Magnemite"
 },
 {
   "category": "Pokemon",
@@ -2467,7 +2467,7 @@ const cards = [
     }
   ],
   "retreat": 0,
-  "evolveFrom": null
+  "evolveFrom": "Voltorb"
 },
 {
   "category": "Pokemon",
@@ -2517,7 +2517,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Eevee"
 },
 {
   "category": "Pokemon",
@@ -2622,7 +2622,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Blitzle"
 },
 {
   "category": "Pokemon",
@@ -2668,7 +2668,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Tynamo"
 },
 {
   "category": "Pokemon",
@@ -2694,7 +2694,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Eelektrik"
 },
 {
   "category": "Pokemon",
@@ -2742,7 +2742,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Helioptile"
 },
 {
   "category": "Pokemon",
@@ -2813,7 +2813,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Clefairy"
 },
 {
   "category": "Pokemon",
@@ -2861,7 +2861,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Abra"
 },
 {
   "category": "Pokemon",
@@ -2887,7 +2887,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Kadabra"
 },
 {
   "category": "Pokemon",
@@ -2936,7 +2936,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Slowpoke"
 },
 {
   "category": "Pokemon",
@@ -2982,7 +2982,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Gastly"
 },
 {
   "category": "Pokemon",
@@ -3006,7 +3006,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Haunter"
 },
 {
   "category": "Pokemon",
@@ -3031,7 +3031,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Haunter"
 },
 {
   "category": "Pokemon",
@@ -3080,7 +3080,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Drowzee"
 },
 {
   "category": "Pokemon",
@@ -3239,7 +3239,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Ralts"
 },
 {
   "category": "Pokemon",
@@ -3264,7 +3264,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Kirlia"
 },
 {
   "category": "Pokemon",
@@ -3311,7 +3311,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Woobat"
 },
 {
   "category": "Pokemon",
@@ -3363,7 +3363,7 @@ const cards = [
     }
   ],
   "retreat": 4,
-  "evolveFrom": null
+  "evolveFrom": "Golett"
 },
 {
   "category": "Pokemon",
@@ -3410,7 +3410,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Sandshrew"
 },
 {
   "category": "Pokemon",
@@ -3457,7 +3457,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Diglett"
 },
 {
   "category": "Pokemon",
@@ -3505,7 +3505,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Mankey"
 },
 {
   "category": "Pokemon",
@@ -3552,7 +3552,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Machop"
 },
 {
   "category": "Pokemon",
@@ -3577,7 +3577,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Machoke"
 },
 {
   "category": "Pokemon",
@@ -3602,7 +3602,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Machoke"
 },
 {
   "category": "Pokemon",
@@ -3650,7 +3650,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Geodude"
 },
 {
   "category": "Pokemon",
@@ -3677,7 +3677,7 @@ const cards = [
     }
   ],
   "retreat": 4,
-  "evolveFrom": null
+  "evolveFrom": "Graveler"
 },
 {
   "category": "Pokemon",
@@ -3748,7 +3748,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Cubone"
 },
 {
   "category": "Pokemon",
@@ -3773,7 +3773,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Cubone"
 },
 {
   "category": "Pokemon",
@@ -3870,7 +3870,7 @@ const cards = [
     }
   ],
   "retreat": 4,
-  "evolveFrom": null
+  "evolveFrom": "Rhyhorn"
 },
 {
   "category": "Pokemon",
@@ -3893,7 +3893,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Dome Fossil"
 },
 {
   "category": "Pokemon",
@@ -3917,7 +3917,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Kabuto"
 },
 {
   "category": "Pokemon",
@@ -3963,7 +3963,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Mienfoo"
 },
 {
   "category": "Pokemon",
@@ -4013,7 +4013,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Clobbopus"
 },
 {
   "category": "Pokemon",
@@ -4061,7 +4061,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Ekans"
 },
 {
   "category": "Pokemon",
@@ -4107,7 +4107,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Nidoran♀"
 },
 {
   "category": "Pokemon",
@@ -4133,7 +4133,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Nidorina"
 },
 {
   "category": "Pokemon",
@@ -4180,7 +4180,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Nidoran♂"
 },
 {
   "category": "Pokemon",
@@ -4206,7 +4206,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Nidorino"
 },
 {
   "category": "Pokemon",
@@ -4252,7 +4252,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Zubat"
 },
 {
   "category": "Pokemon",
@@ -4302,7 +4302,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Grimer"
 },
 {
   "category": "Pokemon",
@@ -4348,7 +4348,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Koffing"
 },
 {
   "category": "Pokemon",
@@ -4419,7 +4419,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Pawniard"
 },
 {
   "category": "Pokemon",
@@ -4468,7 +4468,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Meltan"
 },
 {
   "category": "Pokemon",
@@ -4517,7 +4517,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Dratini"
 },
 {
   "category": "Pokemon",
@@ -4543,7 +4543,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Dragonair"
 },
 {
   "category": "Pokemon",
@@ -4589,7 +4589,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Pidgey"
 },
 {
   "category": "Pokemon",
@@ -4613,7 +4613,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Pidgeotto"
 },
 {
   "category": "Pokemon",
@@ -4659,7 +4659,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Rattata"
 },
 {
   "category": "Pokemon",
@@ -4707,7 +4707,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Spearow"
 },
 {
   "category": "Pokemon",
@@ -4755,7 +4755,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Jigglypuff"
 },
 {
   "category": "Pokemon",
@@ -4781,7 +4781,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Jigglypuff"
 },
 {
   "category": "Pokemon",
@@ -4830,7 +4830,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Meowth"
 },
 {
   "category": "Pokemon",
@@ -4899,7 +4899,7 @@ const cards = [
     }
   ],
   "retreat": 0,
-  "evolveFrom": null
+  "evolveFrom": "Doduo"
 },
 {
   "category": "Pokemon",
@@ -5137,7 +5137,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Old Amber"
 },
 {
   "category": "Pokemon",
@@ -5212,7 +5212,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Minccino"
 },
 {
   "category": "Pokemon",
@@ -5261,7 +5261,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Wooloo"
 },
 {
   "category": "Trainer",
@@ -5452,7 +5452,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Oddish"
 },
 {
   "category": "Pokemon",
@@ -5524,7 +5524,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Ponyta"
 },
 {
   "category": "Pokemon",
@@ -5574,7 +5574,7 @@ const cards = [
     }
   ],
   "retreat": 0,
-  "evolveFrom": null
+  "evolveFrom": "Magikarp"
 },
 {
   "category": "Pokemon",
@@ -5622,7 +5622,7 @@ const cards = [
     }
   ],
   "retreat": 0,
-  "evolveFrom": null
+  "evolveFrom": "Voltorb"
 },
 {
   "category": "Pokemon",
@@ -5648,7 +5648,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Kadabra"
 },
 {
   "category": "Pokemon",
@@ -5744,7 +5744,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Nidorina"
 },
 {
   "category": "Pokemon",
@@ -5770,7 +5770,7 @@ const cards = [
     }
   ],
   "retreat": 0,
-  "evolveFrom": null
+  "evolveFrom": "Nidorino"
 },
 {
   "category": "Pokemon",
@@ -5793,7 +5793,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Zubat"
 },
 {
   "category": "Pokemon",
@@ -5816,7 +5816,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Koffing"
 },
 {
   "category": "Pokemon",
@@ -5842,7 +5842,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Dragonair"
 },
 {
   "category": "Pokemon",
@@ -5866,7 +5866,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Pidgeotto"
 },
 {
   "category": "Pokemon",
@@ -6021,7 +6021,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Ivysaur"
 },
 {
   "category": "Pokemon",
@@ -6045,7 +6045,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Exeggcute"
 },
 {
   "category": "Pokemon",
@@ -6081,7 +6081,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Charmeleon"
 },
 {
   "category": "Pokemon",
@@ -6107,7 +6107,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Growlithe"
 },
 {
   "category": "Pokemon",
@@ -6173,7 +6173,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Wartortle"
 },
 {
   "category": "Pokemon",
@@ -6197,7 +6197,7 @@ const cards = [
     }
   ],
   "retreat": 0,
-  "evolveFrom": null
+  "evolveFrom": "Staryu"
 },
 {
   "category": "Pokemon",
@@ -6256,7 +6256,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Pikachu"
 },
 {
   "category": "Pokemon",
@@ -6307,7 +6307,7 @@ const cards = [
     }
   ],
   "retreat": 0,
-  "evolveFrom": null
+  "evolveFrom": "Haunter"
 },
 {
   "category": "Pokemon",
@@ -6367,7 +6367,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Machoke"
 },
 {
   "category": "Pokemon",
@@ -6392,7 +6392,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Cubone"
 },
 {
   "category": "Pokemon",
@@ -6418,7 +6418,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Jigglypuff"
 },
 {
   "category": "Trainer",
@@ -6646,7 +6646,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Haunter"
 },
 {
   "category": "Pokemon",
@@ -6671,7 +6671,7 @@ const cards = [
     }
   ],
   "retreat": 3,
-  "evolveFrom": null
+  "evolveFrom": "Machoke"
 },
 {
   "category": "Pokemon",
@@ -6697,7 +6697,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Jigglypuff"
 },
 {
   "category": "Pokemon",
@@ -6733,7 +6733,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Charmeleon"
 },
 {
   "category": "Pokemon",
@@ -6758,7 +6758,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Pikachu"
 },
 {
   "category": "Pokemon",
@@ -6853,7 +6853,7 @@ const cards = [
     }
   ],
   "retreat": 2,
-  "evolveFrom": null
+  "evolveFrom": "Charmeleon"
 },
 {
   "category": "Pokemon",
@@ -6878,7 +6878,7 @@ const cards = [
     }
   ],
   "retreat": 1,
-  "evolveFrom": null
+  "evolveFrom": "Pikachu"
 },
 {
   "category": "Pokemon",
@@ -9651,5 +9651,5 @@ const cards = [
   ],
   "retreat": 1,
   "evolveFrom": null
-},
+}
 ];
