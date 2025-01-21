@@ -1,0 +1,4 @@
+/* Don't let Simple.css override the button styles that choices.css is using. */
+.choices button:enabled:hover {
+  background-color: unset;
+}

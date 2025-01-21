@@ -24,13 +24,10 @@
       rel="stylesheet"
     />
 
-    <!-- Pico.css -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.conditional.min.css"
-    />
+    <!-- Simple.css for base styling-->
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
 
-    <!-- choices.js -->
+    <!-- choices.js styles -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css"
@@ -39,6 +36,7 @@
     <!-- Custom app styles -->
     <link rel="stylesheet" href="./css/app.css" />
 
+
     <!-- Alpine.js -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
@@ -46,17 +44,15 @@
     <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
 
     <!-- Our App JS (the simulator) -->
+    <script src="./js/cards.js"></script>
     <script src="./js/app.js"></script>
   </head>
 
   <body>
-    <main class="container">
-      <hgroup>
-        <h1>Pokemon TCG Pocket Draw Simulator</h1>
-        <h2>Simulate drawing and playing specific combinations of cards</h2>
-      </hgroup>
+      <main>
+        <h1>TCG Pocket Draw Simulator</h1>
+        <p>Simulate drawing and playing specific combinations of cards</p>
 
-      <article id="content">
         <form
           x-data="pokemonSimulator()"
           x-init="initChoices()"
@@ -78,7 +74,7 @@
 
           <button type="submit">Run Simulation</button>
         </form>
-      </article>
+      </main>
     </main>
   </body>
 </html>

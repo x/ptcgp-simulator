@@ -1,5 +1,5 @@
 // Auto-generated cards data
-const cards = [
+window.cards = [
 {
   "category": "Pokemon",
   "id": "A1-001",

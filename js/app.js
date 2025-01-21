@@ -1,64 +1,3 @@
-window.cards = [
-  {
-    name: {
-      en: 'Bulbasaur'
-    },
-    illustrator: 'Narumi Sato',
-    category: 'Pokemon',
-    hp: 70,
-    types: ['Grass'],
-    stage: 'Basic',
-    attacks: [
-      {
-        cost: ['Grass', 'Colorless'],
-        name: {
-          en: 'Vine Whip'
-        },
-        damage: '40'
-      }
-    ],
-    retreat: 1,
-    rarity: 'One Diamond'
-  },
-  {
-    name: {
-      en: 'Ivysaur'
-    },
-    illustrator: 'Kurata So',
-    category: 'Pokemon',
-    hp: 90,
-    types: ['Grass'],
-    stage: 'Stage1',
-
-    attacks: [
-      {
-        cost: ['Grass', 'Colorless', 'Colorless'],
-        name: {
-          en: 'Razor Leaf'
-        },
-        damage: '60'
-      }
-    ],
-    retreat: 2,
-    rarity: 'Two Diamond'
-  }
-]
-
-/**
- * A small helper that returns an array of label options like:
- *   [ 'Bulbasaur 1x', 'Bulbasaur 2x', 'Ivysaur 1x', 'Ivysaur 2x', ... ]
- */
-function getCardLabelOptions () {
-  const labels = []
-  for (let c of cards) {
-    // We'll use the English name from c.name.en
-    const cardName = c.name.en
-    // Each card gets "Name 1x" and "Name 2x" versions
-    labels.push(`${cardName} 1x`)
-    labels.push(`${cardName} 2x`)
-  }
-  return labels
-}
 
 /**
  * The main Alpine component for the simulator form.
@@ -72,14 +11,15 @@ function pokemonSimulator () {
       // 1) Deck select
       this.deckSelectInstance = new Choices(this.$refs.deckSelect, {
         removeItemButton: true,
-        placeholderValue: 'Pick your deck cards...'
+        placeholderValue: 'Pick your deck cards...',
+        shouldSort: false
       })
 
       // Populate it
-      const deckLabels = getCardLabelOptions()
+      const deckLabels = this.getCardLabelOptions()
       const choiceObjects = deckLabels.map(lbl => ({
-        value: lbl,
-        label: lbl
+        value: lbl['label'],
+        label: lbl['label']
       }))
       this.deckSelectInstance.setChoices(choiceObjects, 'value', 'label', true)
 
@@ -91,7 +31,7 @@ function pokemonSimulator () {
       })
 
       deckEl.addEventListener('removeItem', event => {
-        const removed = event.detail.value // e.g. "Bulbasaur 1x"
+        const removed = event.detail.value // e.g. "(A1-001) Bulbasaur x1"
         this.handleRemoveDeckItem(removed)
       })
 
@@ -103,32 +43,30 @@ function pokemonSimulator () {
     },
 
     handleAddDeckItem (newlyAddedLabel) {
-      // E.g. newlyAddedLabel = "Bulbasaur 1x"
-      const { baseName, count } = this.parseLabel(newlyAddedLabel)
-
-      // 1) If user already had "Bulbasaur 1x" selected and they just added "Bulbasaur 2x"
-      //    => we want to remove "Bulbasaur 1x" from the deck (and vice versa).
-      // We'll check the *other* variant
-      const otherCount = count === 1 ? 2 : 1
-      const otherVariant = `${baseName} ${otherCount}x`
+      // E.g. newlyAddedLabel = "(A1-001) Bulbasaur x1"
+      const { id, baseName, count } = this.parseLabel(newlyAddedLabel)
 
       // Check if the otherVariant is currently selected
       const selectedValues = this.deckSelectInstance
         .getValue(true)
         .map(x => (x.value ? x.value : x))
-
-      if (selectedValues.includes(otherVariant)) {
-        // Remove it
-        this.deckSelectInstance.removeActiveItemsByValue(otherVariant)
+    
+      // Iterate over the selected values and remove it if it has the same baseName
+      for (let selectedValue of selectedValues) {
+          const { id: selectedId, baseName: selectedBaseName, count: selectedCount } = this.parseLabel(selectedValue)
+          if (selectedBaseName === baseName && (selectedId !== id || selectedCount !== count)) {
+            // Remove it
+            this.deckSelectInstance.removeActiveItemsByValue(selectedValue)
+          }
       }
-
+    
       // 2) Update target choices
       this.updateTargetChoices()
     },
 
     handleRemoveDeckItem (removedLabel) {
-      // If we remove "Bulbasaur 1x" but still have "Bulbasaur 2x" in the deck, no problem.
-      // If we remove "Bulbasaur 1x" and there's no "Bulbasaur 2x" left,
+      // If we remove "Bulbasaur x1" but still have "Bulbasaur x2" in the deck, no problem.
+      // If we remove "Bulbasaur x1" and there's no "Bulbasaur x2" left,
       // we might need to remove "Bulbasaur" from the target (if it's no longer in deck).
       this.updateTargetChoices()
     },
@@ -139,7 +77,8 @@ function pokemonSimulator () {
         .getValue(true)
         .map(x => {
           const label = x.value ? x.value : x // handle the object or string
-          return this.parseLabel(label).baseName // e.g. "Bulbasaur"
+          const { id, baseName } = this.parseLabel(label)
+          return this.toLabel(id, baseName, null) // e.g. "(A1-001) Bulbasaur"
         })
 
       // 2) Unique base names from the deck
@@ -180,14 +119,55 @@ function pokemonSimulator () {
       // won't be reselected -> effectively it's removed from the user's selection.
     },
 
-    parseLabel (labelStr) {
-      // labelStr e.g. "Bulbasaur 1x" => parse "Bulbasaur" and 1
-      const parts = labelStr.split(' ')
-      const baseName = parts[0] // "Bulbasaur"
-      const countStr = parts[1] // "1x"
-      const count = parseInt(countStr.replace('x', ''), 10)
-      return { baseName, count }
+
+    /**
+     * A small helper that returns an array of label options like:
+     *   [ {"name": '(A1-001) Bulbasaur x1', ...} {"name": '(A1-001) Bulbasaur x2', ...}, ... ]
+     */
+    getCardLabelOptions () {
+      const labels = []
+      for (let c of cards) {
+        // Each card gets "Name x1" and "Name x2" versions
+        labels.push({
+            'label': this.toLabel(c.id, c.name, 1),
+        })
+        labels.push({
+            'label': this.toLabel(c.id, c.name, 2),
+        })
+      }
+      return labels
     },
+
+    parseLabel (labelStr) {
+      // labelStr e.g. "(A1-001) Bulbasaur 1x" => parse "(A1-001) Bulbasaur" and 1
+      const cardName = labelStr.slice(0, -3)
+
+      // The id is always at the start surrounded by parentheses
+      const id = labelStr.match(/\(([^)]+)\)/)[1]
+
+      // The base name is the card name without the id
+      const baseName = cardName.slice(id.length + 3)
+
+      // The count is the last character of the string
+      const count = parseInt(labelStr.slice(-1))
+
+      return { id, baseName, count }
+    },
+
+    toLabel (id, baseName, count) {
+      if (count === null) {
+        return `(${id}) ${baseName}`
+      }
+      return `(${id}) ${baseName} x${count}`
+    },
+
+    /** Fisher-Yates shuffle */
+    shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
 
     /**
      * This is called when the user presses "Run Simulation"
@@ -201,12 +181,8 @@ function pokemonSimulator () {
       // Build a literal deck array (e.g. ["Ponyta","Ponyta","Vulpix",...])
       const deckArray = []
       chosenDeckLabels.forEach(lbl => {
-        // "Bulbasaur 2x" => baseName="Bulbasaur", count=2
-        const parts = lbl.split(' ')
-        const baseName = parts[0]
-        const countStr = parts[1] // e.g. "2x"
-        const copies = parseInt(countStr.replace('x', ''), 10)
-        for (let i = 0; i < copies; i++) {
+        id, baseName, count = this.parseLabel(lbl)
+        for (let i = 0; i < count; i++) {
           deckArray.push(baseName)
         }
       })
@@ -217,7 +193,7 @@ function pokemonSimulator () {
         .map(item => item.value || item) // e.g. ["Ninetails", "Blaine"]
 
       // 3) We'll run N simulations, track success stats
-      const numSims = 1000
+      const numSimulations = 1000
       let successCount = 0
       let totalTurnsToSuccess = 0
 
