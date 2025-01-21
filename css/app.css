@@ -25,3 +25,27 @@ hgroup p {
   font-weight: bold;
   font: 1em monospace;
 }
+
+/* No dark mode */
+:root {
+  --bg: #fff;
+  --accent-bg: #f5f7ff;
+  --text: #212121;
+  --text-light: #585858;
+  --border: #898EA4;
+  --accent: #0d47a1;
+  --accent-hover: #1266e2;
+  --accent-text: var(--bg);
+  --code: #d81b60;
+  --preformatted: #444;
+  --marked: #ffdd33;
+  --disabled: #efefef;
+}
+
+body {
+  background-image: url(../images/subtle_dots.webp);
+}
+
+fieldset {
+  background-color: var(--bg);
+}
