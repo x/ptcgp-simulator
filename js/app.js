@@ -453,7 +453,7 @@ function pokemonSimulator () {
       this.logInfo('=== Simulation Distribution ===')
       distribution.forEach((val, turn) => {
         const pct = (val * 100).toFixed(1)
-        this.logInfo(`Turn ${turn}: ${val*numGames}/${numGames} (${pct}%)`)
+        this.logInfo(`Turn ${turn}: ${Math.floor(val*numGames)}/${numGames} (${pct}%)`)
       })
     },
 
