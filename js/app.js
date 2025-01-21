@@ -167,7 +167,7 @@ function pokemonSimulator () {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
       }
-    }
+    },
 
     /**
      * This is called when the user presses "Run Simulation"
