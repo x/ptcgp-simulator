@@ -9,39 +9,29 @@
     <title>Pokemon TCG Pocket Draw Simulator</title>
 
     <!-- Meta Properties -->
-    <meta property="og:title" content="Pokemon TCG Pocket Draw Simulator" />
+    <meta property="og:title" content="TCG Pocket Draw Simulator" />
     <meta property="og:type" content="website" />
-    <meta
-      name="twitter:card"
-      content="A tool for simulating how hard it is to draw and play specific combinations of cards."
-    />
+    <meta name="twitter:card" content="Simulate drawing and playing specific combinations of cards in Pokemon TCG Pocket" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet" />
 
     <!-- Simple.css for base styling-->
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="./vendor/simple-css/simple.min.css">
 
     <!-- choices.js styles -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css"
-    />
+    <link rel="stylesheet" href="./vendor/choices-js/choices.min.css" />
 
     <!-- Custom app styles -->
     <link rel="stylesheet" href="./css/app.css" />
-
 
     <!-- Alpine.js -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
     <!-- choices.js -->
-    <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
+    <script src="./vendor/choices-js/choices.min.js"></script>
 
     <!-- Our App JS (the simulator) -->
     <script src="./js/cards.js"></script>
@@ -52,7 +42,7 @@
       <main>
         <hgroup>
           <h1>TCG Pocket Draw Simulator</h1>
-          <p class="subheader">Simulate drawing and playing specific combinations of cards</p>
+          <p class="subheader">Simulate drawing and playing specific combinations of cards in Pokemon TCG Pocket</p>
         </hgroup>
 
         <form
@@ -75,6 +65,13 @@
           </fieldset>
 
           <button type="submit">Run Simulation</button>
+
+          <!-- New fieldset (or div) for log output -->
+          <fieldset>
+            <legend>Simulation Log</legend>
+            <!-- We'll insert messages here -->
+            <div x-ref="logContainer" class="log-output"></div>
+          </fieldset>
         </form>
       </main>
   </body>

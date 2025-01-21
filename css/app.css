@@ -10,3 +10,18 @@ hgroup h1 {
 hgroup p {
   margin-top: 0;
 }
+
+.log-output p {
+  margin: 0.5em 0;
+}
+
+.log-output p.info {
+  color: green;
+  font: 1em monospace;
+}
+
+.log-output p.error {
+  color: red;
+  font-weight: bold;
+  font: 1em monospace;
+}

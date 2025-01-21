@@ -1,10 +1,56 @@
 /**
  * The main Alpine component for the simulator form.
+ * 
+ * TODO:
+ *  - Add a switch for "play pokeballs before research" or vice versa
+ *  - Add support for "chatol" and "meowth" cards
+ *  - Error when the deck is missing the pre-evolutions necessary 
+ *  - Allow choosing number of games to simulate
  */
 function pokemonSimulator () {
   return {
     deckSelectInstance: null,
     targetSelectInstance: null,
+    allCardsMap: null,
+
+    /**
+     * Append an info message to the log output area.
+     */
+    logInfo(message) {
+      // 1) Grab the log container via x-ref
+      const container = this.$refs.logContainer;
+
+      // 2) Create a paragraph element
+      const p = document.createElement('p');
+      p.classList.add('info'); // so you can style differently if you like
+      p.textContent = message;
+
+      // 3) Append to container
+      container.appendChild(p);
+    },
+
+    /**
+     * Append an error message to the log output area.
+     */
+    logError(message) {
+      // 1) Grab the log container
+      const container = this.$refs.logContainer;
+
+      // 2) Create a paragraph element
+      const p = document.createElement('p');
+      p.classList.add('error');
+      p.textContent = message;
+
+      // 3) Append to container
+      container.appendChild(p);
+    },
+
+    /**
+     * Clear the log output area.
+     */
+    clearLog() {
+      this.$refs.logContainer.innerHTML = '';
+    },
 
     initChoices () {
       // 1) Deck select
@@ -182,8 +228,6 @@ function pokemonSimulator () {
         ;[array[i], array[j]] = [array[j], array[i]]
       }
     },
-
-    allCardsMap: null,
 
     getCardMap () {
       if (!this.allCardsMap) {
@@ -371,6 +415,9 @@ function pokemonSimulator () {
      * This is called when the user presses "Run Simulation"
      */
     runSimulation () {
+      // 0) Clear the log
+      this.clearLog()
+
       // 1) Build the deck array from deckSelect choices
       const chosenDeckLabels = this.deckSelectInstance
         .getValue(true)
@@ -385,6 +432,8 @@ function pokemonSimulator () {
         }
       })
 
+      numGames = 10000
+
       // A deck should be 20 cards, so we'll pad it with Placeholder cards
       while (deckArray.length < 20) {
         deckArray.push('Placeholder')
@@ -396,18 +445,15 @@ function pokemonSimulator () {
         .map(item => item.value || item)
       // e.g. ["Ninetails","Blaine"]
 
-      console.log('targetNames', targetNames)
-      console.log('deckArray', deckArray)
-
       // 3) Run the simulation
-      console.log('=== Running Simulation ===')
-      const distribution = this.simulateMultipleGames(deckArray, targetNames)
+      this.logInfo('=== Running Simulation ===')
+      const distribution = this.simulateMultipleGames(deckArray, targetNames, numGames)
 
       // 4) Log or display the distribution
-      console.log('=== Simulation Distribution ===')
+      this.logInfo('=== Simulation Distribution ===')
       distribution.forEach((val, turn) => {
         const pct = (val * 100).toFixed(1)
-        console.log(`Turn ${turn}: ${pct}% have met the target by now`)
+        this.logInfo(`Turn ${turn}: ${val*numGames}/${numGames} (${pct}%)`)
       })
     },
 
@@ -418,8 +464,8 @@ function pokemonSimulator () {
      * @returns {number[]} distribution array (length = MAX_TURNS+1)
      *    distribution[t] = fraction (0..1) of games that meet the target by turn t
      */
-    simulateMultipleGames (deckArray, targetNames, numGames = 10) {
-      console.log('Simulating', numGames, 'games...')
+    simulateMultipleGames (deckArray, targetNames, numGames) {
+      this.logInfo(`Simulating ${numGames} games...`)
       const MAX_TURNS = 10
       const earliestTurns = []
 
@@ -455,13 +501,9 @@ function pokemonSimulator () {
     },
 
     /**
-     * Place *all* Basic Pokemon from the hand into play if they
-     * are explicitly in the targetNames array.
-     *
-     * e.g. if "Vulpix" is in targetNames, and we have 2 Vulpix in hand,
-     * we put them both into inPlay.
+     * Place *all* Basic Pokemon from the hand. Don't worry about bench size.
      */
-    playAllTargetBasics (inPlay, hand, currentTurn, targetNames) {
+    playAllBasics (inPlay, hand, currentTurn) {
       // We'll repeatedly scan the hand for a Basic that's in the target list.
       // Each time we find one, we move it from hand -> inPlay.
       let keepGoing = true
@@ -469,12 +511,7 @@ function pokemonSimulator () {
         keepGoing = false
 
         // Find index of a Basic that is in targetNames
-        const idx = hand.findIndex(cardName => {
-          // Must be basic
-          if (!this.isBasicPokemon(cardName)) return false
-          // Must be in the target list
-          return targetNames.includes(cardName)
-        })
+        const idx = hand.findIndex(cn => this.isBasicPokemon(cn))
 
         if (idx !== -1) {
           // Move that card from hand to inPlay
@@ -532,13 +569,11 @@ function pokemonSimulator () {
         }
       }
 
-      console.log('Initial hand:', hand)
-
       // 3) "In play" array will track { name, stage, turnPlayed }
       let inPlay = []
 
       // 4) Immediately play all "target" Basics from opening hand (turn 0)
-      this.playAllTargetBasics(inPlay, hand, 0, targetNames)
+      this.playAllBasics(inPlay, hand, 0, targetNames)
 
       // 4a) If we meet the target condition after playing them at turn 0, return 0
       if (this.checkTargetsMet(targetNames, hand, inPlay)) {
@@ -547,7 +582,6 @@ function pokemonSimulator () {
 
       // 5) Simulate each turn
       for (let turn = 1; turn <= maxTurns; turn++) {
-        console.log(`Turn ${turn}: ${hand} | ${inPlay.map(p => p.name)}`)
         // (a) Draw 1 card (if available)
         if (deck.length > 0) {
           hand.push(deck.shift())
@@ -560,23 +594,13 @@ function pokemonSimulator () {
         this.useOneProfessorResearch(hand, deck)
 
         // (d) Play *all* Basic Pokémon in the target list (if any in hand)
-        this.playAllTargetBasics(inPlay, hand, turn, targetNames)
+        this.playAllBasics(inPlay, hand, turn, targetNames)
 
-        // (e) If we still have NO Basic in play at all,
-        //     just play the first Basic we find (so we can potentially evolve it).
-        if (!inPlay.some(p => p.stage === 'Basic')) {
-          const idx = hand.findIndex(cn => this.isBasicPokemon(cn))
-          if (idx !== -1) {
-            const basicName = hand.splice(idx, 1)[0]
-            inPlay.push({ name: basicName, stage: 'Basic', turnPlayed: turn })
-          }
-        }
-
-        // (f) Attempt to evolve any Stage1/Stage2 if possible
+        // (e) Attempt to evolve any Stage1/Stage2 if possible
         //     (only from Basics/Stage1 played on a previous turn: turnPlayed < currentTurn)
         this.evolvePokemon(inPlay, hand, turn)
 
-        // (g) Check if we meet the target condition now
+        // (f) Check if we meet the target condition now
         if (this.checkTargetsMet(targetNames, hand, inPlay)) {
           return turn
         }
@@ -588,18 +612,13 @@ function pokemonSimulator () {
 
     // -------------- Check if user’s target conditions are met --------------
     checkTargetsMet (targetNames, hand, inPlay) {
-      console.log('Checking targets:', targetNames)
-      console.log('Hand:', hand)
-      console.log('In play:', inPlay)
-
       // We interpret Pokemon targets as "must be in play"
       // and Trainer targets as "must be in hand."
       for (let tName of targetNames) {
-        console.log('Checking target:', tName)
         const {baseName} = this.parseLabel(tName)
         const info = this.getCardMap()[baseName]
         if (!info) {
-          console.error('Unknown card:', baseName)
+          this.logError('Unknown card:', baseName)
         }
         if (this.isPokemon(baseName)) {
           // Must be in inPlay
