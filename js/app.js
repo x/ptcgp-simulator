@@ -480,6 +480,10 @@ function pokemonSimulator () {
           targetNames,
           MAX_TURNS
         )
+        if (turnMet === null) {
+          // abort
+          return new Array(MAX_TURNS + 1).fill(0)
+        }
         earliestTurns.push(turnMet) // integer or null
       }
 
@@ -545,21 +549,20 @@ function pokemonSimulator () {
      * @returns {number|null} earliest turn (0..maxTurns) success, or null if never
      */
     singleGameSimulation (deckArray, targetNames, maxTurns) {
+      // 0) Confirm that there is at least 1 Basic in the deck
+      if (!deckArray.some(cn => this.isBasicPokemon(cn))) {
+        this.logError('No Basic Pokémon in deck!')
+        return null
+      }
+      
       // 1) Copy & shuffle deck
       const deck = deckArray.slice()
       this.shuffle(deck)
 
       // 2) Mulligan until we have at least 1 Basic in top 5
       let hand = []
-      const MAX_MULLIGANS = 10
-      let mullCount = 0
 
       while (true) {
-        if (mullCount >= MAX_MULLIGANS || deck.length < 5) {
-          // can't get a valid starting hand
-          return null
-        }
-
         // draw top 5
         hand = deck.splice(0, 5)
 
@@ -570,7 +573,6 @@ function pokemonSimulator () {
           // otherwise, put them back, reshuffle, and try again
           deck.push(...hand)
           this.shuffle(deck)
-          mullCount++
         }
       }
 
