@@ -1,8 +1,3 @@
-/* Don't let Simple.css override the button styles that choices.css is using. */
-.choices button:enabled:hover {
-  background-color: unset;
-}
-
 hgroup h1 {
   margin-bottom: 0;
 }
@@ -23,11 +18,12 @@ hgroup p {
 .log-output p.error {
   color: red;
   font-weight: bold;
-  font: 1em monospace;
+  font-family: var(--mono-font);
 }
 
 /* No dark mode */
 :root {
+  --color-scheme: unset;
   --bg: #fff;
   --accent-bg: #f5f7ff;
   --text: #212121;
@@ -64,4 +60,29 @@ legend {
 
 ul {
   margin-top: 0;
+}
+
+.choices__item.choices__item--selectable,
+.choices__item.is-highlighted {
+  font-family: var(--mono-font);
+  border-radius: var(--standard-border-radius);
+  padding: .1rem .2rem;
+  margin: .1rem .1rem .1rem .1rem;
+  background-color: var(--bg);
+  color: var(--text)
+}
+
+.choices__inner {
+  padding: .2rem;
+}
+
+/* Don't let Simple.css override the button styles that choices.css is using. */
+.choices button:enabled:hover {
+  background-color: unset;
+}
+
+.choices__button {
+  height: unset;
+  color: var(--text);
+  filter: invert(100%); /* This turns the "X" button SVG from white to black */
 }
