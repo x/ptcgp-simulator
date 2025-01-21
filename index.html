@@ -50,8 +50,10 @@
 
   <body>
       <main>
-        <h1>TCG Pocket Draw Simulator</h1>
-        <p>Simulate drawing and playing specific combinations of cards</p>
+        <hgroup>
+          <h1>TCG Pocket Draw Simulator</h1>
+          <p class="subheader">Simulate drawing and playing specific combinations of cards</p>
+        </hgroup>
 
         <form
           x-data="pokemonSimulator()"
@@ -60,14 +62,14 @@
         >
           <fieldset>
             <legend>Select Cards for Your Deck</legend>
-            <label for="deckSelection">Pick deck cards (1x or 2x):</label>
+            <label for="deckSelection">Pick deck cards (x1 or x2):</label>
             <select id="deckSelection" multiple x-ref="deckSelect"></select>
           </fieldset>
 
           <fieldset>
             <legend>Target Cards</legend>
             <label for="targetCards"
-              >Pick which base card(s) you’re aiming for:</label
+              >Pick which card(s) you’re aiming to play:</label
             >
             <select id="targetCards" multiple x-ref="targetCards"></select>
           </fieldset>
@@ -75,6 +77,5 @@
           <button type="submit">Run Simulation</button>
         </form>
       </main>
-    </main>
   </body>
 </html>

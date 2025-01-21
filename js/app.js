@@ -1,4 +1,3 @@
-
 /**
  * The main Alpine component for the simulator form.
  */
@@ -50,16 +49,23 @@ function pokemonSimulator () {
       const selectedValues = this.deckSelectInstance
         .getValue(true)
         .map(x => (x.value ? x.value : x))
-    
+
       // Iterate over the selected values and remove it if it has the same baseName
       for (let selectedValue of selectedValues) {
-          const { id: selectedId, baseName: selectedBaseName, count: selectedCount } = this.parseLabel(selectedValue)
-          if (selectedBaseName === baseName && (selectedId !== id || selectedCount !== count)) {
-            // Remove it
-            this.deckSelectInstance.removeActiveItemsByValue(selectedValue)
-          }
+        const {
+          id: selectedId,
+          baseName: selectedBaseName,
+          count: selectedCount
+        } = this.parseLabel(selectedValue)
+        if (
+          selectedBaseName === baseName &&
+          (selectedId !== id || selectedCount !== count)
+        ) {
+          // Remove it
+          this.deckSelectInstance.removeActiveItemsByValue(selectedValue)
+        }
       }
-    
+
       // 2) Update target choices
       this.updateTargetChoices()
     },
@@ -119,7 +125,6 @@ function pokemonSimulator () {
       // won't be reselected -> effectively it's removed from the user's selection.
     },
 
-
     /**
      * A small helper that returns an array of label options like:
      *   [ {"name": '(A1-001) Bulbasaur x1', ...} {"name": '(A1-001) Bulbasaur x2', ...}, ... ]
@@ -127,29 +132,38 @@ function pokemonSimulator () {
     getCardLabelOptions () {
       const labels = []
       for (let c of cards) {
+        if (c.name == 'Placeholder') {
+          continue
+        }
         // Each card gets "Name x1" and "Name x2" versions
         labels.push({
-            'label': this.toLabel(c.id, c.name, 1),
+          label: this.toLabel(c.id, c.name, 1)
         })
         labels.push({
-            'label': this.toLabel(c.id, c.name, 2),
+          label: this.toLabel(c.id, c.name, 2)
         })
       }
       return labels
     },
 
     parseLabel (labelStr) {
-      // labelStr e.g. "(A1-001) Bulbasaur 1x" => parse "(A1-001) Bulbasaur" and 1
-      const cardName = labelStr.slice(0, -3)
+      let cardName, count
+      // if it ends with 1 or 2, it contains a count
+      if (labelStr.endsWith('x1') || labelStr.endsWith('x2')) {
+        // labelStr e.g. "(A1-001) Bulbasaur 2x" => parse "(A1-001) Bulbasaur" and 2
+        cardName = labelStr.slice(0, -3)
+        count = parseInt(labelStr.slice(-1))
+      } else {
+        // labelStr e.g. "(A1-001) Bulbasaur" => parse "(A1-001) Bulbasaur" and 1
+        cardName = labelStr
+        count = 1
+      }
 
       // The id is always at the start surrounded by parentheses
       const id = labelStr.match(/\(([^)]+)\)/)[1]
 
       // The base name is the card name without the id
       const baseName = cardName.slice(id.length + 3)
-
-      // The count is the last character of the string
-      const count = parseInt(labelStr.slice(-1))
 
       return { id, baseName, count }
     },
@@ -162,202 +176,438 @@ function pokemonSimulator () {
     },
 
     /** Fisher-Yates shuffle */
-    shuffle(array) {
+    shuffle (array) {
       for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[array[i], array[j]] = [array[j], array[i]]
       }
+    },
+
+    allCardsMap: null,
+
+    getCardMap () {
+      if (!this.allCardsMap) {
+        // Build it once
+        this.allCardsMap = {}
+        for (let c of window.cards || []) {
+          // your real data might store c.name as a string or c.name.en
+          // adapt as needed
+          const cardName = c.name
+          this.allCardsMap[cardName] = c
+        }
+      }
+      return this.allCardsMap
+    },
+
+    /**
+     * Identify if a card is a Basic Pokemon
+     */
+    isBasicPokemon (cardName) {
+      const c = this.getCardMap()[cardName]
+      if (!c) return false
+      return c.category === 'Pokemon' && c.stage === 'Basic'
+    },
+
+    /**
+     * Identify if a card is a Pokemon
+     */
+    isPokemon (cardName) {
+      const cardMap = this.getCardMap()
+      const c = cardMap[cardName]
+      return c && c.category === 'Pokemon'
+    },
+
+
+    /**
+     * Identify if a card is a Pokemon
+     */
+    isTrainer (cardName) {
+      const cardMap = this.getCardMap()
+      const c = cardMap[cardName]
+      return c && c.category === 'Trainer'
+    },
+
+    /**
+     * Identify if a card is a Pokemon
+     */
+    isPokemon (cardName) {
+      const cardMap = this.getCardMap()
+      const c = cardMap[cardName]
+      return c && c.category === 'Pokemon'
+    },
+    /**
+     * Identify the stage of a Pokemon
+     */
+    getStage (cardName) {
+      const c = this.getCardMap()[cardName]
+      return c?.stage || null // "Basic","Stage1","Stage2", or null
+    },
+
+    /**
+     * Evolve a Pokemon
+     */
+    getEvolveFrom (cardName) {
+      const c = this.getCardMap()[cardName]
+      return c?.evolveFrom || null
+    },
+
+    /**
+     * Use all Pokeballs in hand.
+     * Each time we find a Pokeball, remove it from hand,
+     * then search the deck for any Basic. If found, put it in hand.
+     */
+    useAllPokeballs (hand, deck) {
+      let idx = hand.findIndex(cn => cn === 'Pokeball')
+      while (idx !== -1) {
+        // remove from hand
+        hand.splice(idx, 1)
+
+        // find a Basic in deck
+        const deckIdx = deck.findIndex(cn => this.isBasicPokemon(cn))
+        if (deckIdx !== -1) {
+          const basicName = deck.splice(deckIdx, 1)[0]
+          hand.push(basicName)
+        }
+
+        idx = hand.findIndex(cn => cn === 'Pokeball')
+      }
+    },
+
+    /**
+     * Use exactly 1 Professor's Research if we find it in hand.
+     * (Assumes the name is "Professor's Research".)
+     * Then draw 2 from deck.
+     */
+    useOneProfessorResearch (hand, deck) {
+      const idx = hand.indexOf("Professor's Research")
+      if (idx !== -1) {
+        // remove it
+        hand.splice(idx, 1)
+        // draw 2
+        for (let i = 0; i < 2; i++) {
+          if (deck.length > 0) {
+            hand.push(deck.shift())
+          }
+        }
+      }
+    },
+
+    /**
+     * Attempt to evolve Stage1 or Stage2 from hand if possible.
+     * We'll do repeated passes in case evolving one leads to another possibility.
+     */
+    evolvePokemon (inPlay, hand, currentTurn) {
+      let didEvolve = true
+      while (didEvolve) {
+        didEvolve = false
+
+        for (let i = 0; i < hand.length; i++) {
+          const evoName = hand[i]
+          if (!this.isPokemon(evoName)) continue
+
+          const evoStage = this.getStage(evoName)
+          if (evoStage === 'Basic') continue // can't "evolve" a Basic
+
+          // For "Stage1" or "Stage2", look up the needed pre-evo
+          const preEvoName = this.getEvolveFrom(evoName)
+          if (!preEvoName) continue // not known
+
+          // find that pre-evo in inPlay for at least 1 turn
+          const preEvoInPlay = inPlay.find(
+            p => p.name === preEvoName && p.turnPlayed < currentTurn
+          )
+          if (preEvoInPlay) {
+            // remove from hand
+            hand.splice(i, 1)
+            i--
+            // remove the pre-evo from inPlay
+            const idxInPlay = inPlay.indexOf(preEvoInPlay)
+            inPlay.splice(idxInPlay, 1)
+            // add the evolved form
+            inPlay.push({
+              name: evoName,
+              stage: evoStage,
+              turnPlayed: currentTurn
+            })
+            didEvolve = true
+            break
+          }
+        }
+      }
+    },
+
+    /**
+     * We interpret *   - If target is a Pokemon => mj
+     *   - If target is a Pokemon => must be in inPlay
+     *   - If target is a Trainer => must be in hand
+     * For your real code, you'll want to confirm how to detect "Trainer" vs "Pokemon."
+     */
+    checkTargetsMet (targetNames, hand, inPlay) {
+      const cardMap = this.getCardMap()
+
+      for (let tName of targetNames) {
+        const c = cardMap[tName]
+        if (!c) {
+          // Unknown card => fail
+          return false
+        }
+        if (c.category === 'Pokemon') {
+          // Must be in play
+          const found = inPlay.some(p => p.name === tName)
+          if (!found) return false
+        } else if (c.category === 'Trainer') {
+          // Must be in hand
+          if (!hand.includes(tName)) return false
+        } else {
+          // unrecognized
+          return false
+        }
+      }
+      // If we never returned false, all conditions are met
+      return true
     },
 
     /**
      * This is called when the user presses "Run Simulation"
      */
     runSimulation () {
-      // 1) Get the user’s chosen deck from deckSelect
+      // 1) Build the deck array from deckSelect choices
       const chosenDeckLabels = this.deckSelectInstance
         .getValue(true)
         .map(item => item.value || item)
 
-      // Build a literal deck array (e.g. ["Ponyta","Ponyta","Vulpix",...])
       const deckArray = []
       chosenDeckLabels.forEach(lbl => {
-        id, baseName, count = this.parseLabel(lbl)
+        // "(A1-001) Bulbasaur 2x" => baseName="Bulbasaur", copies=2
+        const { baseName, count } = this.parseLabel(lbl)
         for (let i = 0; i < count; i++) {
           deckArray.push(baseName)
         }
       })
 
-      // 2) Gather the user’s chosen targets from targetSelect
-      const chosenTargets = this.targetSelectInstance
-        .getValue(true)
-        .map(item => item.value || item) // e.g. ["Ninetails", "Blaine"]
-
-      // 3) We'll run N simulations, track success stats
-      const numSimulations = 1000
-      let successCount = 0
-      let totalTurnsToSuccess = 0
-
-      for (let i = 0; i < numSims; i++) {
-        const simResult = this.singleSimulation(deckArray, chosenTargets)
-        if (simResult.success) {
-          successCount++
-          totalTurnsToSuccess += simResult.turns
-        }
+      // A deck should be 20 cards, so we'll pad it with Placeholder cards
+      while (deckArray.length < 20) {
+        deckArray.push('Placeholder')
       }
 
-      // 4) Output
-      const successRate = (successCount / numSims) * 100
-      const avgTurns =
-        successCount > 0
-          ? (totalTurnsToSuccess / successCount).toFixed(2)
-          : '--'
-      console.log(`Out of ${numSims} simulations:`)
-      console.log(`Success rate: ${successRate.toFixed(1)}%`)
-      console.log(`Average turns to meet target: ${avgTurns}`)
+      // 2) Gather target names from targetSelect
+      const targetNames = this.targetSelectInstance
+        .getValue(true)
+        .map(item => item.value || item)
+      // e.g. ["Ninetails","Blaine"]
+
+      console.log('targetNames', targetNames)
+      console.log('deckArray', deckArray)
+
+      // 3) Run the simulation
+      console.log('=== Running Simulation ===')
+      const distribution = this.simulateMultipleGames(deckArray, targetNames)
+
+      // 4) Log or display the distribution
+      console.log('=== Simulation Distribution ===')
+      distribution.forEach((val, turn) => {
+        const pct = (val * 100).toFixed(1)
+        console.log(`Turn ${turn}: ${pct}% have met the target by now`)
+      })
     },
 
-    // -------------- Core TCG logic for a SINGLE simulation --------------
-    singleSimulation (deckArray, targetNames) {
-      // We'll model a 20-card scenario or just whatever deck length we have.
-      // 1) Clone the deck & shuffle
-      const deck = [...deckArray]
-      shuffleArray(deck)
+    /**
+     * @param {string[]} deckArray    e.g. ["Vulpix","Vulpix","Pokeball",...]
+     * @param {string[]} targetNames  e.g. ["Ninetails","Blaine"]
+     * @param {number} numGames       default=1000
+     * @returns {number[]} distribution array (length = MAX_TURNS+1)
+     *    distribution[t] = fraction (0..1) of games that meet the target by turn t
+     */
+    simulateMultipleGames (deckArray, targetNames, numGames = 10) {
+      console.log('Simulating', numGames, 'games...')
+      const MAX_TURNS = 10
+      const earliestTurns = []
 
-      // 2) Mulligan until we have at least 1 Basic in opening hand of 5
-      let hand = []
-      const maxMulligans = 10
-      let mulliganCount = 0
-      while (true) {
-        // If we run out of tries or the deck is too small, break
-        if (mulliganCount >= maxMulligans || deck.length < 5) {
-          // fail from the start
-          return { success: false, turns: 0 }
+      for (let i = 0; i < numGames; i++) {
+        const turnMet = this.singleGameSimulation(
+          deckArray,
+          targetNames,
+          MAX_TURNS
+        )
+        earliestTurns.push(turnMet) // integer or null
+      }
+
+      // Build distribution: distribution[t] = fraction of sims that succeed BY turn t
+      const distribution = new Array(MAX_TURNS + 1).fill(0)
+
+      for (let et of earliestTurns) {
+        if (et === null) {
+          // never succeeded
+          continue
         }
-
-        // draw 5
-        hand = deck.splice(0, 5)
-        if (hand.some(card => isBasic(card))) {
-          // we have at least 1 Basic
-          break
-        } else {
-          // re-mulligan: put those 5 back, reshuffle, draw again
-          deck.push(...hand)
-          shuffleArray(deck)
-          mulliganCount++
+        // If earliest success is et, that means success by turn et, and all subsequent turns
+        for (let t = et; t <= MAX_TURNS; t++) {
+          distribution[t]++
         }
       }
 
-      // 3) We'll track what's "in play" as an array of objects:
-      //    { name: "Vulpix", turnPlayed: 1, stage: "Basic" }
-      //    so we know if we can evolve next turn, etc.
+      // Convert counts to fraction
+      for (let t = 0; t <= MAX_TURNS; t++) {
+        distribution[t] = distribution[t] / numGames
+      }
+
+      return distribution
+    },
+
+    /**
+     * Place *all* Basic Pokemon from the hand into play if they
+     * are explicitly in the targetNames array.
+     *
+     * e.g. if "Vulpix" is in targetNames, and we have 2 Vulpix in hand,
+     * we put them both into inPlay.
+     */
+    playAllTargetBasics (inPlay, hand, currentTurn, targetNames) {
+      // We'll repeatedly scan the hand for a Basic that's in the target list.
+      // Each time we find one, we move it from hand -> inPlay.
+      let keepGoing = true
+      while (keepGoing) {
+        keepGoing = false
+
+        // Find index of a Basic that is in targetNames
+        const idx = hand.findIndex(cardName => {
+          // Must be basic
+          if (!this.isBasicPokemon(cardName)) return false
+          // Must be in the target list
+          return targetNames.includes(cardName)
+        })
+
+        if (idx !== -1) {
+          // Move that card from hand to inPlay
+          const basicName = hand.splice(idx, 1)[0]
+          inPlay.push({
+            name: basicName,
+            stage: 'Basic',
+            turnPlayed: currentTurn
+          })
+          keepGoing = true
+        }
+      }
+    },
+
+    /**
+     * Simulate ONE game up to maxTurns:
+     *  - Mulligan for opening 5 until we have at least 1 Basic
+     *  - Each turn:
+     *      1) Draw 1
+     *      2) Use all Poké Balls
+     *      3) Use exactly 1 Professor's Research if available (limit 1)
+     *      4) Play Basic if none in play
+     *      5) Evolve if possible (Stage1 or Stage2) from a prior-turn pre-evo
+     *      6) Check if targets are met
+     *
+     * @returns {number|null} earliest turn (0..maxTurns) success, or null if never
+     */
+    singleGameSimulation (deckArray, targetNames, maxTurns) {
+      // 1) Copy & shuffle deck
+      const deck = deckArray.slice()
+      this.shuffle(deck)
+
+      // 2) Mulligan until we have at least 1 Basic in top 5
+      let hand = []
+      const MAX_MULLIGANS = 10
+      let mullCount = 0
+
+      while (true) {
+        if (mullCount >= MAX_MULLIGANS || deck.length < 5) {
+          // can't get a valid starting hand
+          return null
+        }
+
+        // draw top 5
+        hand = deck.splice(0, 5)
+
+        // if there's at least one Basic, we're good
+        if (hand.some(cardName => this.isBasicPokemon(cardName))) {
+          break
+        } else {
+          // otherwise, put them back, reshuffle, and try again
+          deck.push(...hand)
+          this.shuffle(deck)
+          mullCount++
+        }
+      }
+
+      console.log('Initial hand:', hand)
+
+      // 3) "In play" array will track { name, stage, turnPlayed }
       let inPlay = []
 
-      // 4) Now we simulate up to N turns
-      const maxTurns = 12
+      // 4) Immediately play all "target" Basics from opening hand (turn 0)
+      this.playAllTargetBasics(inPlay, hand, 0, targetNames)
+
+      // 4a) If we meet the target condition after playing them at turn 0, return 0
+      if (this.checkTargetsMet(targetNames, hand, inPlay)) {
+        return 0
+      }
+
+      // 5) Simulate each turn
       for (let turn = 1; turn <= maxTurns; turn++) {
-        // --- Draw 1 card if available ---
+        console.log(`Turn ${turn}: ${hand} | ${inPlay.map(p => p.name)}`)
+        // (a) Draw 1 card (if available)
         if (deck.length > 0) {
           hand.push(deck.shift())
         }
 
-        // --- Use all Poké Balls in hand (before Professor Oak) ---
-        //     We'll assume we *only* use them if we still need a Basic
-        //     for some evolution line. We'll do a simple approach here:
-        let keepSearching = true
-        while (keepSearching) {
-          const pokeballIndex = hand.findIndex(card => isPokeball(card))
-          if (pokeballIndex === -1) {
-            keepSearching = false
-            break
-          }
-          // remove from hand
-          hand.splice(pokeballIndex, 1)
+        // (b) Use all Poké Balls (fetch Basic)
+        this.useAllPokeballs(hand, deck)
 
-          // "Search the deck for a Basic" => if any left
-          const basicIndex = deck.findIndex(c => isBasic(c))
-          if (basicIndex !== -1) {
-            // fetch it into hand
-            const foundBasic = deck.splice(basicIndex, 1)[0]
-            hand.push(foundBasic)
-          }
-        }
+        // (c) Use up to ONE Professor's Research (draw 2)
+        this.useOneProfessorResearch(hand, deck)
 
-        // --- Use all Professor Oaks in hand (draw 2) ---
-        //     (We do them *after* using PokéBalls)
-        let oakIndex = hand.findIndex(card => isProfessorOak(card))
-        while (oakIndex !== -1) {
-          // remove from hand
-          hand.splice(oakIndex, 1)
-          // draw 2
-          for (let i = 0; i < 2; i++) {
-            if (deck.length > 0) {
-              hand.push(deck.shift())
-            }
-          }
-          // find next oak
-          oakIndex = hand.findIndex(card => isProfessorOak(card))
-        }
+        // (d) Play *all* Basic Pokémon in the target list (if any in hand)
+        this.playAllTargetBasics(inPlay, hand, turn, targetNames)
 
-        // --- If we have no Basic in play, put one down (the first we find) ---
+        // (e) If we still have NO Basic in play at all,
+        //     just play the first Basic we find (so we can potentially evolve it).
         if (!inPlay.some(p => p.stage === 'Basic')) {
-          const basicIndex = hand.findIndex(c => isBasic(c))
-          if (basicIndex !== -1) {
-            const basicName = hand.splice(basicIndex, 1)[0]
+          const idx = hand.findIndex(cn => this.isBasicPokemon(cn))
+          if (idx !== -1) {
+            const basicName = hand.splice(idx, 1)[0]
             inPlay.push({ name: basicName, stage: 'Basic', turnPlayed: turn })
           }
         }
 
-        // --- Evolve if possible: Stage1 from its Basic that's been in play >= 1 turn
-        //     We'll do a simple pass for all Stage1s in hand, see if we can evolve:
-        for (let i = 0; i < hand.length; i++) {
-          const cardName = hand[i]
-          if (isStage1(cardName)) {
-            const preEvo = evolvesFrom(cardName) // e.g. "Vulpix" => "Ninetails"
-            // Check if we have the preEvo in play for at least 1 turn
-            const targetInPlay = inPlay.find(
-              p =>
-                p.name === preEvo && p.stage === 'Basic' && p.turnPlayed < turn
-            )
-            if (targetInPlay) {
-              // We can evolve
-              // remove the stage1 from hand
-              hand.splice(i, 1)
-              i--
-              // Remove the Basic from inPlay
-              inPlay = inPlay.filter(p => p !== targetInPlay)
-              // Add the Stage1 to inPlay
-              inPlay.push({ name: cardName, stage: 'Stage1', turnPlayed: turn })
-            }
-          }
-        }
+        // (f) Attempt to evolve any Stage1/Stage2 if possible
+        //     (only from Basics/Stage1 played on a previous turn: turnPlayed < currentTurn)
+        this.evolvePokemon(inPlay, hand, turn)
 
-        // --- Check if we have met all target conditions now ---
+        // (g) Check if we meet the target condition now
         if (this.checkTargetsMet(targetNames, hand, inPlay)) {
-          return { success: true, turns: turn }
+          return turn
         }
       }
 
-      // If we get here, we never met the target condition
-      return { success: false, turns: maxTurns }
+      // If we never achieve the target by maxTurns, return null
+      return null
     },
 
     // -------------- Check if user’s target conditions are met --------------
     checkTargetsMet (targetNames, hand, inPlay) {
+      console.log('Checking targets:', targetNames)
+      console.log('Hand:', hand)
+      console.log('In play:', inPlay)
+
       // We interpret Pokemon targets as "must be in play"
       // and Trainer targets as "must be in hand."
       for (let tName of targetNames) {
-        if (!CARD_INFO[tName]) {
-          // If we have no info, just skip or treat as "not met."
-          return false
+        console.log('Checking target:', tName)
+        const {baseName} = this.parseLabel(tName)
+        const info = this.getCardMap()[baseName]
+        if (!info) {
+          console.error('Unknown card:', baseName)
         }
-        const info = CARD_INFO[tName]
-        if (info.type === 'pokemon') {
+        if (this.isPokemon(baseName)) {
           // Must be in inPlay
-          const found = inPlay.some(p => p.name === tName)
+          const found = inPlay.some(p => p.name === baseName)
           if (!found) return false
-        } else if (info.type === 'trainer') {
+        } else if (this.isTrainer(baseName)) {
           // Must be in hand
-          if (!hand.includes(tName)) return false
+          if (!hand.includes(baseName)) return false
         } else {
           // Unrecognized type => fail
           return false
@@ -366,12 +616,5 @@ function pokemonSimulator () {
       // if we never returned false, all targets are satisfied
       return true
     }
-  }
-}
-
-function shuffleArray (arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[arr[i], arr[j]] = [arr[j], arr[i]]
   }
 }

@@ -1,6 +1,20 @@
 // Auto-generated cards data
 window.cards = [
-{
+  // Special card as a placeholder
+  {
+    "category": "Trainer",
+    "id": "A0-000",
+    "image": "",
+    "localId": "000",
+    "name": "Placeholder",
+    "hp": 0,
+    "types": null,
+    "stage": null,
+    "attacks": null,
+    "retreat": null,
+    "evolveFrom": null
+  },
+  {
   "category": "Pokemon",
   "id": "A1-001",
   "image": "https://assets.tcgdex.net/en/tcgp/A1/001",

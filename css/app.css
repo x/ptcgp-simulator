@@ -2,3 +2,11 @@
 .choices button:enabled:hover {
   background-color: unset;
 }
+
+hgroup h1 {
+  margin-bottom: 0;
+}
+
+hgroup p {
+  margin-top: 0;
+}
