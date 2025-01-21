@@ -5,7 +5,11 @@
  *  - Add a switch for "play pokeballs before research" or vice versa
  *  - Add support for "chatol" and "meowth" cards
  *  - Error when the deck is missing the pre-evolutions necessary 
+ *  - Error when more than 20 cards (maybe we should do form validation)
  *  - Allow choosing number of games to simulate
+ *  - Support 1x of two cards with the same name
+ *  - Add support for the psyhic item.
+ *  - Add support for caterpie.
  */
 function pokemonSimulator () {
   return {
@@ -49,6 +53,7 @@ function pokemonSimulator () {
      * Clear the log output area.
      */
     clearLog() {
+      this.$refs.logFieldset.classList.remove('hidden');
       this.$refs.logContainer.innerHTML = '';
     },
 

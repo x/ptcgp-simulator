@@ -39,40 +39,53 @@
   </head>
 
   <body>
-      <main>
-        <hgroup>
-          <h1>TCG Pocket Draw Simulator</h1>
-          <p class="subheader">Simulate drawing and playing specific combinations of cards in Pokemon TCG Pocket</p>
-        </hgroup>
+    <hgroup>
+      <h1>TCG Pocket Draw Simulator</h1>
+      <p class="subheader">Simulate drawing and playing specific combinations of cards in Pokemon TCG Pocket</p>
+    </hgroup>
+    <article>
 
-        <form
-          x-data="pokemonSimulator()"
-          x-init="initChoices()"
-          @submit.prevent="runSimulation"
+    <b>Instructions</b>
+    <ul>
+      <li>Choose up to 20 cards (we'll fill in the rest).</li>
+      <li>Inlcude <i>all</i> basic pokemon and draw-related trainer cards.</li>
+      <li>Choose the cards you're targetting to play (i.e. <kbd>Ninetails</kbd>, <kbd>Blaine</kbd>).</li>
+    </ul>
+
+    <form
+      x-data="pokemonSimulator()"
+      x-init="initChoices()"
+      @submit.prevent="runSimulation"
+    >
+      <fieldset>
+        <legend>Select Cards for Your Deck</legend>
+        <label for="deckSelection">Your Deck</label>
+        <select id="deckSelection" multiple x-ref="deckSelect"></select>
+      </fieldset>
+
+      <fieldset>
+        <legend>Target Cards</legend>
+        <label for="targetCards"
+          >Pick which card(s) you’re aiming to play:</label
         >
-          <fieldset>
-            <legend>Select Cards for Your Deck</legend>
-            <label for="deckSelection">Pick deck cards (x1 or x2):</label>
-            <select id="deckSelection" multiple x-ref="deckSelect"></select>
-          </fieldset>
+        <select id="targetCards" multiple x-ref="targetCards"></select>
+      </fieldset>
 
-          <fieldset>
-            <legend>Target Cards</legend>
-            <label for="targetCards"
-              >Pick which card(s) you’re aiming to play:</label
-            >
-            <select id="targetCards" multiple x-ref="targetCards"></select>
-          </fieldset>
+      <button type="submit">Run Simulation</button>
 
-          <button type="submit">Run Simulation</button>
-
-          <!-- New fieldset (or div) for log output -->
-          <fieldset>
-            <legend>Simulation Log</legend>
-            <!-- We'll insert messages here -->
-            <div x-ref="logContainer" class="log-output"></div>
-          </fieldset>
-        </form>
-      </main>
+      <!-- New fieldset (or div) for log output -->
+      <fieldset class="hidden" x-ref="logFieldset">
+        <legend>Simulation Log</legend>
+        <!-- We'll insert messages here -->
+        <div x-ref="logContainer" class="log-output"></div>
+      </fieldset>
+    </form>
+    </article>
+    <p class="footer">
+      <small>
+      Made with ❤️ by
+      <a href="https://peticol.as" target="_blank" rel="noopener noreferrer">Devon Peticolas</a> | Source on <a href="https://github.com/x/tcgp-simulator" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </small>
+    </p>
   </body>
 </html>

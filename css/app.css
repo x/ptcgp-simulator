@@ -46,6 +46,22 @@ body {
   background-image: url(../images/subtle_dots.webp);
 }
 
-fieldset {
+article {
   background-color: var(--bg);
+}
+
+.footer {
+  text-align: center;
+}
+
+legend {
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+ul {
+  margin-top: 0;
 }
