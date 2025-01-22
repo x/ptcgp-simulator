@@ -1,10 +1,10 @@
 /**
  * The main Alpine component for the simulator form.
- * 
+ *
  * TODO:
  *  - Add a switch for "play pokeballs before research" or vice versa
  *  - Add support for "chatol" and "meowth" cards
- *  - Error when the deck is missing the pre-evolutions necessary 
+ *  - Error when the deck is missing the pre-evolutions necessary
  *  - Error when more than 20 cards (maybe we should do form validation)
  *  - Allow choosing number of games to simulate
  *  - Support 1x of two cards with the same name
@@ -20,41 +20,41 @@ function pokemonSimulator () {
     /**
      * Append an info message to the log output area.
      */
-    logInfo(message) {
+    logInfo (message) {
       // 1) Grab the log container via x-ref
-      const container = this.$refs.logContainer;
+      const container = this.$refs.logContainer
 
       // 2) Create a paragraph element
-      const p = document.createElement('p');
-      p.classList.add('info'); // so you can style differently if you like
-      p.textContent = message;
+      const p = document.createElement('p')
+      p.classList.add('info') // so you can style differently if you like
+      p.textContent = message
 
       // 3) Append to container
-      container.appendChild(p);
+      container.appendChild(p)
     },
 
     /**
      * Append an error message to the log output area.
      */
-    logError(message) {
+    logError (message) {
       // 1) Grab the log container
-      const container = this.$refs.logContainer;
+      const container = this.$refs.logContainer
 
       // 2) Create a paragraph element
-      const p = document.createElement('p');
-      p.classList.add('error');
-      p.textContent = message;
+      const p = document.createElement('p')
+      p.classList.add('error')
+      p.textContent = message
 
       // 3) Append to container
-      container.appendChild(p);
+      container.appendChild(p)
     },
 
     /**
      * Clear the log output area.
      */
-    clearLog() {
-      this.$refs.logFieldset.classList.remove('hidden');
-      this.$refs.logContainer.innerHTML = '';
+    clearLog () {
+      this.$refs.logFieldset.classList.remove('hidden')
+      this.$refs.logContainer.innerHTML = ''
     },
 
     initChoices () {
@@ -266,7 +266,6 @@ function pokemonSimulator () {
       return c && c.category === 'Pokemon'
     },
 
-
     /**
      * Identify if a card is a Pokemon
      */
@@ -386,37 +385,6 @@ function pokemonSimulator () {
     },
 
     /**
-     * We interpret *   - If target is a Pokemon => mj
-     *   - If target is a Pokemon => must be in inPlay
-     *   - If target is a Trainer => must be in hand
-     * For your real code, you'll want to confirm how to detect "Trainer" vs "Pokemon."
-     */
-    checkTargetsMet (targetNames, hand, inPlay) {
-      const cardMap = this.getCardMap()
-
-      for (let tName of targetNames) {
-        const c = cardMap[tName]
-        if (!c) {
-          // Unknown card => fail
-          return false
-        }
-        if (c.category === 'Pokemon') {
-          // Must be in play
-          const found = inPlay.some(p => p.name === tName)
-          if (!found) return false
-        } else if (c.category === 'Trainer') {
-          // Must be in hand
-          if (!hand.includes(tName)) return false
-        } else {
-          // unrecognized
-          return false
-        }
-      }
-      // If we never returned false, all conditions are met
-      return true
-    },
-
-    /**
      * This is called when the user presses "Run Simulation"
      */
     runSimulation () {
@@ -452,13 +420,19 @@ function pokemonSimulator () {
 
       // 3) Run the simulation
       this.logInfo('=== Running Simulation ===')
-      const distribution = this.simulateMultipleGames(deckArray, targetNames, numGames)
+      const distribution = this.simulateMultipleGames(
+        deckArray,
+        targetNames,
+        numGames
+      )
 
       // 4) Log or display the distribution
       this.logInfo('=== Simulation Distribution ===')
       distribution.forEach((val, turn) => {
         const pct = (val * 100).toFixed(1)
-        this.logInfo(`Turn ${turn}: ${Math.floor(val*numGames)}/${numGames} (${pct}%)`)
+        this.logInfo(
+          `Turn ${turn}: ${Math.floor(val * numGames)}/${numGames} (${pct}%)`
+        )
       })
     },
 
@@ -475,12 +449,11 @@ function pokemonSimulator () {
       const earliestTurns = []
 
       for (let i = 0; i < numGames; i++) {
-        const turnMet = this.singleGameSimulation(
-          deckArray,
-          targetNames,
-          MAX_TURNS
-        )
-        if (turnMet === null) {
+        let turnMet
+        try {
+          turnMet = this.singleGameSimulation(deckArray, targetNames, MAX_TURNS)
+        } catch (err) {
+          this.logError(`Error in game ${i + 1}: ${err.message}`)
           // abort
           return new Array(MAX_TURNS + 1).fill(0)
         }
@@ -551,10 +524,9 @@ function pokemonSimulator () {
     singleGameSimulation (deckArray, targetNames, maxTurns) {
       // 0) Confirm that there is at least 1 Basic in the deck
       if (!deckArray.some(cn => this.isBasicPokemon(cn))) {
-        this.logError('No Basic Pokémon in deck!')
-        return null
+        throw new Error('No Basic Pokémon in deck!')
       }
-      
+
       // 1) Copy & shuffle deck
       const deck = deckArray.slice()
       this.shuffle(deck)
@@ -617,16 +589,18 @@ function pokemonSimulator () {
       return null
     },
 
-    // -------------- Check if user’s target conditions are met --------------
+    /**
+     * Check if targets are met.
+     *   - If target is a Pokemon => must be in inPlay
+     *   - If target is a Trainer => must be in hand
+     *
+     * Returns true if all targets are met, false otherwise.
+     */
     checkTargetsMet (targetNames, hand, inPlay) {
       // We interpret Pokemon targets as "must be in play"
       // and Trainer targets as "must be in hand."
       for (let tName of targetNames) {
-        const {baseName} = this.parseLabel(tName)
-        const info = this.getCardMap()[baseName]
-        if (!info) {
-          this.logError('Unknown card:', baseName)
-        }
+        const { baseName } = this.parseLabel(tName)
         if (this.isPokemon(baseName)) {
           // Must be in inPlay
           const found = inPlay.some(p => p.name === baseName)
@@ -636,7 +610,7 @@ function pokemonSimulator () {
           if (!hand.includes(baseName)) return false
         } else {
           // Unrecognized type => fail
-          return false
+          throw new Error(`Unknown target type: ${base}`)
         }
       }
       // if we never returned false, all targets are satisfied

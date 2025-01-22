@@ -1,3 +1,11 @@
 {
-    "cSpell.enabled": false
+    "cSpell.enabled": false,
+    "eslint.validate": [
+     "javascript"
+    ],
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "numso.prettier-standard-vscode"
+    }
+
 }
