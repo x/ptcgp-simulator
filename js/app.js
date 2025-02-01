@@ -101,7 +101,8 @@ function pokemonSimulator () {
       this.deckSelectInstance = new Choices(this.$refs.deckSelect, {
         removeItemButton: true,
         placeholderValue: 'Pick your deck cards...',
-        shouldSort: false
+        shouldSort: false,
+        searchResultLimit: 10
       })
 
       // Populate it
