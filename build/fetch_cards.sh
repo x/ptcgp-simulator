@@ -44,6 +44,14 @@ CARD_LIMIT=""
 # Function to fetch and process card data for a given set
 fetch_set_cards() {
     local set_code="$1"
+    local output_file="$OUTPUT_DIR/$set_code.json"
+
+    # Skip if the file already exists
+    if [[ -f "$output_file" ]]; then
+        echo "Skipping set: $set_code (already exists)"
+        return 0
+    fi
+
     echo "Processing set: $set_code"
 
     # Construct the URL for the set
@@ -73,7 +81,6 @@ fetch_set_cards() {
 
     # Ensure the output directory exists
     mkdir -p "$OUTPUT_DIR"
-    local output_file="$OUTPUT_DIR/$set_code.json"
 
     # Initialize/Empty the output file
     echo "[" > "$output_file"
