@@ -19,7 +19,7 @@ async function fetchAllSets () {
     2. Update the SETS array in build/fetch_sets.sh.
     3. Run fetch_sets.sh
   */
-  const setCodes = ['A1', 'A1a', 'P-A']
+  const setCodes = ['A1', 'A1a', 'P-A', 'A2']
   const allCards = []
 
   for (const setCode of setCodes) {

@@ -29,7 +29,7 @@ API_HOST="https://api.tcgdex.net/v2/en"
 # 1. Update this list with the new set code(s)
 # 2. Add the set code to js/app.js in the `setCodes` array
 # 3. Run this script
-SETS=("A1" "A1a" "P-A")
+SETS=("A1" "A1a" "P-A" "A2")
 
 # Output directory path
 OUTPUT_DIR="sets"
