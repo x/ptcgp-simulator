@@ -1,0 +1,753 @@
+[
+{
+  "category": "Trainer",
+  "id": "P-A-001",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/001",
+  "localId": "001",
+  "name": "Potion",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "P-A-002",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/002",
+  "localId": "002",
+  "name": "X Speed",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "P-A-003",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/003",
+  "localId": "003",
+  "name": "Hand Scope",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "P-A-004",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/004",
+  "localId": "004",
+  "name": "Pokédex",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "P-A-005",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/005",
+  "localId": "005",
+  "name": "Poké Ball",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "P-A-006",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/006",
+  "localId": "006",
+  "name": "Red Card",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "P-A-007",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/007",
+  "localId": "007",
+  "name": "Professor's Research",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "P-A-008",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/008",
+  "localId": "008",
+  "name": "Pokédex",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-009",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/009",
+  "localId": "009",
+  "name": "Pikachu",
+  "hp": 60,
+  "types": [
+    "Lightning"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Lightning"
+      ],
+      "name": "Gnaw",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-010",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/010",
+  "localId": "010",
+  "name": "Mewtwo",
+  "hp": 120,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic",
+        "Psychic",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Power Blast",
+      "effect": "Discard 2 <span class=\"pfont\" title=\"Psychic\">P</span> Energy from this Pokémon.",
+      "damage": 120
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-011",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/011",
+  "localId": "011",
+  "name": "Chansey",
+  "hp": 120,
+  "types": [
+    "Colorless"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Gentle Slap",
+      "damage": 60
+    }
+  ],
+  "retreat": 3,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-012",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/012",
+  "localId": "012",
+  "name": "Meowth",
+  "hp": 60,
+  "types": [
+    "Colorless"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless"
+      ],
+      "name": "Pay Day",
+      "effect": "Draw a card.",
+      "damage": 10
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-013",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/013",
+  "localId": "013",
+  "name": "Butterfree",
+  "hp": 120,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Stage2",
+  "attacks": [
+    {
+      "cost": [
+        "Grass",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Gust",
+      "damage": 60
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Metapod"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-014",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/014",
+  "localId": "014",
+  "name": "Lapras ex",
+  "hp": 140,
+  "types": [
+    "Water"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Water",
+        "Water",
+        "Colorless"
+      ],
+      "name": "Bubble Drain",
+      "effect": "Heal 20 damage from this Pokémon.",
+      "damage": 80
+    }
+  ],
+  "retreat": 3,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-015",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/015",
+  "localId": "015",
+  "name": "Pikachu",
+  "hp": 60,
+  "types": [
+    "Lightning"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Lightning"
+      ],
+      "name": "Gnaw",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-016",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/016",
+  "localId": "016",
+  "name": "Clefairy",
+  "hp": 60,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic"
+      ],
+      "name": "Slap",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-017",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/017",
+  "localId": "017",
+  "name": "Mankey",
+  "hp": 50,
+  "types": [
+    "Fighting"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Fighting"
+      ],
+      "name": "Reckless Charge",
+      "effect": "This Pokémon also does 10 damage to itself.",
+      "damage": 30
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-018",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/018",
+  "localId": "018",
+  "name": "Venusaur",
+  "hp": 160,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Stage2",
+  "attacks": [
+    {
+      "cost": [
+        "Grass",
+        "Grass",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Mega Drain",
+      "effect": "Heal 30 damage from this Pokémon.",
+      "damage": 80
+    }
+  ],
+  "retreat": 3,
+  "evolveFrom": "Ivysaur"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-019",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/019",
+  "localId": "019",
+  "name": "Greninja",
+  "hp": 120,
+  "types": [
+    "Water"
+  ],
+  "stage": "Stage2",
+  "attacks": [
+    {
+      "cost": [
+        "Water",
+        "Colorless"
+      ],
+      "name": "Mist Slash",
+      "damage": 60
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Frogadier"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-020",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/020",
+  "localId": "020",
+  "name": "Haunter",
+  "hp": 70,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic"
+      ],
+      "name": "Surprise Attack",
+      "effect": "Flip a coin. If tails, this attack does nothing.",
+      "damage": 50
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Gastly"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-021",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/021",
+  "localId": "021",
+  "name": "Onix",
+  "hp": 110,
+  "types": [
+    "Fighting"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Fighting",
+        "Fighting",
+        "Fighting"
+      ],
+      "name": "Land Crush",
+      "damage": 70
+    }
+  ],
+  "retreat": 4,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-022",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/022",
+  "localId": "022",
+  "name": "Jigglypuff",
+  "hp": 50,
+  "types": [
+    "Colorless"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless"
+      ],
+      "name": "Sing",
+      "effect": "Your opponent's Active Pokémon is now Asleep."
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-023",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/023",
+  "localId": "023",
+  "name": "Bulbasaur",
+  "hp": 70,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Grass",
+        "Colorless"
+      ],
+      "name": "Vine Whip",
+      "damage": 40
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-024",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/024",
+  "localId": "024",
+  "name": "Magnemite",
+  "hp": 60,
+  "types": [
+    "Lightning"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Lightning"
+      ],
+      "name": "Lightning Ball",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-025",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/025",
+  "localId": "025",
+  "name": "Moltres ex",
+  "hp": 140,
+  "types": [
+    "Fire"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Fire"
+      ],
+      "name": "Inferno Dance",
+      "effect": "Flip 3 coins. Take an amount of <span class=\"energy-text energy-text--type-fire\"></span> Energy from your Energy Zone equal to the number of heads and attach it to your Benched <span class=\"energy-text energy-text--type-fire\"></span> Pokémon in any way you like."
+    },
+    {
+      "cost": [
+        "Fire",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Heat Blast",
+      "damage": 70
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-026",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/026",
+  "localId": "026",
+  "name": "Pikachu",
+  "hp": 60,
+  "types": [
+    "Lightning"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Lightning"
+      ],
+      "name": "Gnaw",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-027",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/027",
+  "localId": "027",
+  "name": "Snivy",
+  "hp": 60,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Grass"
+      ],
+      "name": "Tackle",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-028",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/028",
+  "localId": "028",
+  "name": "Volcarona",
+  "hp": 120,
+  "types": [
+    "Fire"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Fire",
+        "Fire",
+        "Colorless"
+      ],
+      "name": "Volcanic Ash",
+      "effect": "Discard 2 <span class=\"energy-text energy-text--type-fire\"></span> Energy from this Pokémon. This attack does 80 damage to 1 of your opponent's Pokémon."
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": "Larvesta"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-029",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/029",
+  "localId": "029",
+  "name": "Blastoise",
+  "hp": 150,
+  "types": [
+    "Water"
+  ],
+  "stage": "Stage2",
+  "attacks": [
+    {
+      "cost": [
+        "Water",
+        "Water",
+        "Colorless"
+      ],
+      "name": "Hydro Pump",
+      "effect": "If this Pokémon has at least 2 extra <span class=\"energy-text energy-text--type-water\"></span> Energy attached, this attack does 60 more damage.",
+      "damage": 80
+    }
+  ],
+  "retreat": 3,
+  "evolveFrom": "Wartortle"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-030",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/030",
+  "localId": "030",
+  "name": "Eevee",
+  "hp": 60,
+  "types": [
+    "Colorless"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless"
+      ],
+      "name": "Growl",
+      "effect": "During your opponent's next turn, attacks used by the Defending Pokémon do −20 damage."
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-031",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/031",
+  "localId": "031",
+  "name": "Cinccino",
+  "hp": 90,
+  "types": [
+    "Colorless"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Do the Wave",
+      "effect": "This attack does 30 damage for each of your Benched Pokémon.",
+      "damage": 30
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Minccino"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-032",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/032",
+  "localId": "032",
+  "name": "Charmander",
+  "hp": 60,
+  "types": [
+    "Fire"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Fire"
+      ],
+      "name": "Ember",
+      "effect": "Discard a <span class=\"energy-text energy-text--type-fire\"></span> Energy from this Pokémon.",
+      "damage": 30
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "P-A-033",
+  "image": "https://assets.tcgdex.net/en/tcgp/P-A/033",
+  "localId": "033",
+  "name": "Squirtle",
+  "hp": 60,
+  "types": [
+    "Water"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Water"
+      ],
+      "name": "Water Gun",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+]

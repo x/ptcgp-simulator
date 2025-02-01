@@ -1,0 +1,2104 @@
+[
+{
+  "category": "Pokemon",
+  "id": "A1a-001",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/001",
+  "localId": "001",
+  "name": "Exeggcute",
+  "hp": 50,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless"
+      ],
+      "name": "Growth Spurt",
+      "effect": "Take a <span class=\"energy-text energy-text--type-grass\"></span> Energy from your Energy Zone and attach it to this Pokémon."
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-002",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/002",
+  "localId": "002",
+  "name": "Exeggutor",
+  "hp": 130,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Grass",
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Psychic",
+      "effect": "This attack does 20 more damage for each Energy attached to your opponent's Active Pokémon.",
+      "damage": 80
+    }
+  ],
+  "retreat": 3,
+  "evolveFrom": "Exeggcute"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-003",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/003",
+  "localId": "003",
+  "name": "Celebi ex",
+  "hp": 130,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Grass",
+        "Colorless"
+      ],
+      "name": "Powerful Bloom",
+      "effect": "Flip a coin for each Energy attached to this Pokémon. This attack does 50 damage for each heads.",
+      "damage": 50
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-004",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/004",
+  "localId": "004",
+  "name": "Snivy",
+  "hp": 70,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Grass",
+        "Colorless"
+      ],
+      "name": "Vine Whip",
+      "damage": 40
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-005",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/005",
+  "localId": "005",
+  "name": "Servine",
+  "hp": 80,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Grass",
+        "Colorless"
+      ],
+      "name": "Vine Whip",
+      "damage": 50
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Snivy"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-006",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/006",
+  "localId": "006",
+  "name": "Serperior",
+  "hp": 110,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Stage2",
+  "attacks": [
+    {
+      "cost": [
+        "Grass",
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Solar Beam",
+      "damage": 70
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": "Servine"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-007",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/007",
+  "localId": "007",
+  "name": "Morelull",
+  "hp": 60,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Grass"
+      ],
+      "name": "Ram",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-008",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/008",
+  "localId": "008",
+  "name": "Shiinotic",
+  "hp": 90,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Grass",
+        "Grass"
+      ],
+      "name": "Flickering Spores",
+      "effect": "Your opponent's Active Pokémon is now Asleep.",
+      "damage": 50
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": "Morelull"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-009",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/009",
+  "localId": "009",
+  "name": "Dhelmise",
+  "hp": 100,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Grass"
+      ],
+      "name": "Energy Whip",
+      "effect": "If this Pokémon has at least 3 extra <span class=\"energy-text energy-text--type-grass\"></span> Energy attached, this attack does 70 more damage.",
+      "damage": 20
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-010",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/010",
+  "localId": "010",
+  "name": "Ponyta",
+  "hp": 60,
+  "types": [
+    "Fire"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Fire"
+      ],
+      "name": "Stomp",
+      "effect": "Flip a coin. If heads, this attack does 30 more damage.",
+      "damage": 10
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-011",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/011",
+  "localId": "011",
+  "name": "Rapidash",
+  "hp": 100,
+  "types": [
+    "Fire"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Fire",
+        "Colorless"
+      ],
+      "name": "Rising Lunge",
+      "effect": "Flip a coin. If heads, this attack does 60 more damage.",
+      "damage": 40
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Ponyta"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-012",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/012",
+  "localId": "012",
+  "name": "Magmar",
+  "hp": 80,
+  "types": [
+    "Fire"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Fire",
+        "Fire"
+      ],
+      "name": "Fire Blast",
+      "effect": "Discard 2 <span class=\"energy-text energy-text--type-fire\"></span> Energy from this Pokémon.",
+      "damage": 80
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-013",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/013",
+  "localId": "013",
+  "name": "Larvesta",
+  "hp": 80,
+  "types": [
+    "Fire"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Fire",
+        "Colorless"
+      ],
+      "name": "Combustion",
+      "damage": 30
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-014",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/014",
+  "localId": "014",
+  "name": "Volcarona",
+  "hp": 120,
+  "types": [
+    "Fire"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Fire",
+        "Fire",
+        "Colorless"
+      ],
+      "name": "Volcanic Ash",
+      "effect": "Discard 2 <span class=\"energy-text energy-text--type-fire\"></span> Energy from this Pokémon. This attack does 80 damage to 1 of your opponent's Pokémon."
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": "Larvesta"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-015",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/015",
+  "localId": "015",
+  "name": "Salandit",
+  "hp": 60,
+  "types": [
+    "Fire"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless"
+      ],
+      "name": "Venoshock",
+      "effect": "If your opponent's Active Pokémon is Poisoned, this attack does 40 more damage.",
+      "damage": 10
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-016",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/016",
+  "localId": "016",
+  "name": "Salazzle",
+  "hp": 80,
+  "types": [
+    "Fire"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Fire"
+      ],
+      "name": "Poison Claws",
+      "effect": "Your opponent's Active Pokémon is now Poisoned.",
+      "damage": 30
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Salandit"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-017",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/017",
+  "localId": "017",
+  "name": "Magikarp",
+  "hp": 30,
+  "types": [
+    "Water"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Water"
+      ],
+      "name": "Leap Out",
+      "effect": "Switch this Pokémon with 1 of your Benched Pokémon."
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-018",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/018",
+  "localId": "018",
+  "name": "Gyarados ex",
+  "hp": 180,
+  "types": [
+    "Water"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Water",
+        "Water",
+        "Water",
+        "Colorless"
+      ],
+      "name": "Rampaging Whirlpool",
+      "effect": "Discard a random Energy from among the Energy attached to all Pokémon (both yours and your opponent's).",
+      "damage": 140
+    }
+  ],
+  "retreat": 3,
+  "evolveFrom": "Magikarp"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-019",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/019",
+  "localId": "019",
+  "name": "Vaporeon",
+  "hp": 120,
+  "types": [
+    "Water"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Water",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Wave Splash",
+      "damage": 60
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": "Eevee"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-020",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/020",
+  "localId": "020",
+  "name": "Finneon",
+  "hp": 60,
+  "types": [
+    "Water"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Water"
+      ],
+      "name": "Water Gun",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-021",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/021",
+  "localId": "021",
+  "name": "Lumineon",
+  "hp": 80,
+  "types": [
+    "Water"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Water",
+        "Water"
+      ],
+      "name": "Aqua Liner",
+      "effect": "This attack does 50 damage to 1 of your opponent's Benched Pokémon."
+    }
+  ],
+  "retreat": 0,
+  "evolveFrom": "Finneon"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-022",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/022",
+  "localId": "022",
+  "name": "Chewtle",
+  "hp": 80,
+  "types": [
+    "Water"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Water",
+        "Colorless"
+      ],
+      "name": "Bite",
+      "damage": 30
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-023",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/023",
+  "localId": "023",
+  "name": "Drednaw",
+  "hp": 130,
+  "types": [
+    "Water"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Water",
+        "Water",
+        "Water"
+      ],
+      "name": "Crunch",
+      "effect": "Flip a coin. If heads, discard a random Energy from your opponent's Active Pokémon.",
+      "damage": 70
+    }
+  ],
+  "retreat": 3,
+  "evolveFrom": "Chewtle"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-024",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/024",
+  "localId": "024",
+  "name": "Cramorant",
+  "hp": 80,
+  "types": [
+    "Water"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Water",
+        "Water",
+        "Colorless"
+      ],
+      "name": "Dive",
+      "effect": "Flip a coin. If heads, during your opponent's next turn, prevent all damage from—and effects of—attacks done to this Pokémon.",
+      "damage": 60
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-025",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/025",
+  "localId": "025",
+  "name": "Pikachu",
+  "hp": 60,
+  "types": [
+    "Lightning"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Lightning"
+      ],
+      "name": "Circle Circuit",
+      "effect": "This attack does 10 damage for each of your Benched <span class=\"energy-text energy-text--type-lightning\"></span> Pokémon.",
+      "damage": 10
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-026",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/026",
+  "localId": "026",
+  "name": "Raichu",
+  "hp": 120,
+  "types": [
+    "Lightning"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Lightning",
+        "Lightning",
+        "Lightning"
+      ],
+      "name": "Gigashock",
+      "effect": "This attack also does 20 damage to each of your opponent's Benched Pokémon.",
+      "damage": 60
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": "Pikachu"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-027",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/027",
+  "localId": "027",
+  "name": "Electabuzz",
+  "hp": 70,
+  "types": [
+    "Lightning"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Lightning",
+        "Lightning"
+      ],
+      "name": "Thunder Spear",
+      "effect": "This attack does 40 damage to 1 of your opponent's Pokémon."
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-028",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/028",
+  "localId": "028",
+  "name": "Joltik",
+  "hp": 40,
+  "types": [
+    "Lightning"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Lightning"
+      ],
+      "name": "Bug Bite",
+      "damage": 30
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-029",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/029",
+  "localId": "029",
+  "name": "Galvantula",
+  "hp": 80,
+  "types": [
+    "Lightning"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Lightning",
+        "Lightning"
+      ],
+      "name": "Electroweb",
+      "effect": "During your opponent's next turn, the Defending Pokémon can't retreat.",
+      "damage": 70
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Joltik"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-030",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/030",
+  "localId": "030",
+  "name": "Dedenne",
+  "hp": 60,
+  "types": [
+    "Lightning"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Lightning"
+      ],
+      "name": "Thunder Shock",
+      "effect": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed.",
+      "damage": 10
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-031",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/031",
+  "localId": "031",
+  "name": "Mew",
+  "hp": 60,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic"
+      ],
+      "name": "Psy Report",
+      "effect": "Your opponent reveals their hand.",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-032",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/032",
+  "localId": "032",
+  "name": "Mew ex",
+  "hp": 130,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic"
+      ],
+      "name": "Psyshot",
+      "damage": 20
+    },
+    {
+      "cost": [
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Genome Hacking",
+      "effect": "Choose 1 of your opponent's Active Pokémon's attacks and use it as this attack."
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-033",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/033",
+  "localId": "033",
+  "name": "Sigilyph",
+  "hp": 80,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic"
+      ],
+      "name": "Spike Draw",
+      "effect": "Draw a card.",
+      "damage": 10
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-034",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/034",
+  "localId": "034",
+  "name": "Elgyem",
+  "hp": 60,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic"
+      ],
+      "name": "Headbutt",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-035",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/035",
+  "localId": "035",
+  "name": "Beheeyem",
+  "hp": 90,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic"
+      ],
+      "name": "Mind Jack",
+      "effect": "This attack does 20 more damage for each of your opponent's Benched Pokémon.",
+      "damage": 10
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Elgyem"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-036",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/036",
+  "localId": "036",
+  "name": "Flabébé",
+  "hp": 40,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic"
+      ],
+      "name": "Hypnotic Gaze",
+      "effect": "Your opponent's Active Pokémon is now Asleep."
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-037",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/037",
+  "localId": "037",
+  "name": "Floette",
+  "hp": 70,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic"
+      ],
+      "name": "Leaf Drain",
+      "effect": "Heal 10 damage from this Pokémon.",
+      "damage": 40
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Flabébé"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-038",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/038",
+  "localId": "038",
+  "name": "Florges",
+  "hp": 120,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Stage2",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic",
+        "Psychic"
+      ],
+      "name": "Bloomshine",
+      "effect": "Heal 20 damage from each of your Pokémon.",
+      "damage": 80
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Floette"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-039",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/039",
+  "localId": "039",
+  "name": "Swirlix",
+  "hp": 60,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic"
+      ],
+      "name": "Fairy Wind",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-040",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/040",
+  "localId": "040",
+  "name": "Slurpuff",
+  "hp": 100,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic",
+        "Colorless"
+      ],
+      "name": "Magical Shot",
+      "damage": 60
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": "Swirlix"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-041",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/041",
+  "localId": "041",
+  "name": "Mankey",
+  "hp": 50,
+  "types": [
+    "Fighting"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Fighting"
+      ],
+      "name": "Focus Fist",
+      "effect": "Flip a coin. If tails, this attack does nothing.",
+      "damage": 50
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-042",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/042",
+  "localId": "042",
+  "name": "Primeape",
+  "hp": 80,
+  "types": [
+    "Fighting"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Fighting"
+      ],
+      "name": "Punch",
+      "damage": 50
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Mankey"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-043",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/043",
+  "localId": "043",
+  "name": "Geodude",
+  "hp": 70,
+  "types": [
+    "Fighting"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Fighting",
+        "Colorless"
+      ],
+      "name": "Light Punch",
+      "damage": 30
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-044",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/044",
+  "localId": "044",
+  "name": "Graveler",
+  "hp": 100,
+  "types": [
+    "Fighting"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Fighting",
+        "Colorless"
+      ],
+      "name": "Lunge Out",
+      "damage": 40
+    }
+  ],
+  "retreat": 3,
+  "evolveFrom": "Geodude"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-045",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/045",
+  "localId": "045",
+  "name": "Golem",
+  "hp": 160,
+  "types": [
+    "Fighting"
+  ],
+  "stage": "Stage2",
+  "attacks": [
+    {
+      "cost": [
+        "Fighting",
+        "Fighting",
+        "Fighting",
+        "Colorless"
+      ],
+      "name": "Guard Press",
+      "effect": "During your opponent's next turn, this Pokémon takes −30 damage from attacks.",
+      "damage": 120
+    }
+  ],
+  "retreat": 3,
+  "evolveFrom": "Graveler"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-046",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/046",
+  "localId": "046",
+  "name": "Aerodactyl ex",
+  "hp": 140,
+  "types": [
+    "Fighting"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Fighting",
+        "Colorless"
+      ],
+      "name": "Land Crush",
+      "damage": 80
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-047",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/047",
+  "localId": "047",
+  "name": "Marshadow",
+  "hp": 80,
+  "types": [
+    "Fighting"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Fighting",
+        "Colorless"
+      ],
+      "name": "Revenge",
+      "effect": "If any of your Pokémon were Knocked Out by damage from an attack during your opponent's last turn, this attack does 60 more damage.",
+      "damage": 40
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-048",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/048",
+  "localId": "048",
+  "name": "Stonjourner",
+  "hp": 120,
+  "types": [
+    "Fighting"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Fighting",
+        "Fighting",
+        "Fighting"
+      ],
+      "name": "Mega Kick",
+      "damage": 90
+    }
+  ],
+  "retreat": 3,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-049",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/049",
+  "localId": "049",
+  "name": "Koffing",
+  "hp": 70,
+  "types": [
+    "Darkness"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Darkness"
+      ],
+      "name": "Division",
+      "effect": "Put 1 random <a class=\"localized-string__link\" href=\"/pokemon/koffing/\">Koffing</a> from your deck onto your Bench."
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-050",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/050",
+  "localId": "050",
+  "name": "Weezing",
+  "hp": 110,
+  "types": [
+    "Darkness"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Darkness",
+        "Darkness"
+      ],
+      "name": "Smokescreen",
+      "effect": "During your opponent's next turn, if the Defending Pokémon tries to use an attack, your opponent flips a coin. If tails, that attack doesn't happen.",
+      "damage": 50
+    }
+  ],
+  "retreat": 3,
+  "evolveFrom": "Koffing"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-051",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/051",
+  "localId": "051",
+  "name": "Purrloin",
+  "hp": 60,
+  "types": [
+    "Darkness"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Darkness"
+      ],
+      "name": "Scratch",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-052",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/052",
+  "localId": "052",
+  "name": "Liepard",
+  "hp": 90,
+  "types": [
+    "Darkness"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Darkness"
+      ],
+      "name": "Slash",
+      "damage": 40
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Purrloin"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-053",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/053",
+  "localId": "053",
+  "name": "Venipede",
+  "hp": 60,
+  "types": [
+    "Darkness"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Darkness"
+      ],
+      "name": "Ram",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-054",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/054",
+  "localId": "054",
+  "name": "Whirlipede",
+  "hp": 90,
+  "types": [
+    "Darkness"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Darkness"
+      ],
+      "name": "Poison Sting",
+      "effect": "Your opponent's Active Pokémon is now Poisoned.",
+      "damage": 20
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": "Venipede"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-055",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/055",
+  "localId": "055",
+  "name": "Scolipede",
+  "hp": 140,
+  "types": [
+    "Darkness"
+  ],
+  "stage": "Stage2",
+  "attacks": [
+    {
+      "cost": [
+        "Darkness",
+        "Colorless"
+      ],
+      "name": "Venoshock",
+      "effect": "If your opponent's Active Pokémon is Poisoned, this attack does 50 more damage.",
+      "damage": 70
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": "Whirlipede"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-056",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/056",
+  "localId": "056",
+  "name": "Druddigon",
+  "hp": 100,
+  "types": [
+    "Dragon"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Fire",
+        "Water",
+        "Colorless"
+      ],
+      "name": "Dragon Claw",
+      "damage": 90
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-057",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/057",
+  "localId": "057",
+  "name": "Pidgey",
+  "hp": 50,
+  "types": [
+    "Colorless"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless"
+      ],
+      "name": "Flap",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-058",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/058",
+  "localId": "058",
+  "name": "Pidgeotto",
+  "hp": 90,
+  "types": [
+    "Colorless"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Wing Attack",
+      "damage": 50
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Pidgey"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-059",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/059",
+  "localId": "059",
+  "name": "Pidgeot ex",
+  "hp": 170,
+  "types": [
+    "Colorless"
+  ],
+  "stage": "Stage2",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Scattering Cyclone",
+      "effect": "This attack does 20 more damage for each of your opponent's Benched Pokémon.",
+      "damage": 80
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Pidgeotto"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-060",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/060",
+  "localId": "060",
+  "name": "Tauros",
+  "hp": 100,
+  "types": [
+    "Colorless"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Fighting Tackle",
+      "effect": "If your opponent's Active Pokémon is a Pokémon  more damage.",
+      "damage": 40
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-061",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/061",
+  "localId": "061",
+  "name": "Eevee",
+  "hp": 60,
+  "types": [
+    "Colorless"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless"
+      ],
+      "name": "Continuous Steps",
+      "effect": "Flip a coin until you get tails. This attack does 20 damage for each heads.",
+      "damage": 20
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-062",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/062",
+  "localId": "062",
+  "name": "Chatot",
+  "hp": 60,
+  "types": [
+    "Colorless"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless"
+      ],
+      "name": "Mimic",
+      "effect": "Shuffle your hand into your deck. Draw a card for each card in your opponent's hand."
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "A1a-064",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/064",
+  "localId": "064",
+  "name": "Pokémon Flute",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "A1a-065",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/065",
+  "localId": "065",
+  "name": "Mythical Slab",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "A1a-066",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/066",
+  "localId": "066",
+  "name": "Budding Expeditioner",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "A1a-067",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/067",
+  "localId": "067",
+  "name": "Blue",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "A1a-068",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/068",
+  "localId": "068",
+  "name": "Leaf",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-069",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/069",
+  "localId": "069",
+  "name": "Exeggutor",
+  "hp": 130,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Grass",
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Psychic",
+      "effect": "This attack does 20 more damage for each Energy attached to your opponent's Active Pokémon.",
+      "damage": 80
+    }
+  ],
+  "retreat": 3,
+  "evolveFrom": "Exeggcute"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-070",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/070",
+  "localId": "070",
+  "name": "Serperior",
+  "hp": 110,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Stage2",
+  "attacks": [
+    {
+      "cost": [
+        "Grass",
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Solar Beam",
+      "damage": 70
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": "Servine"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-071",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/071",
+  "localId": "071",
+  "name": "Salandit",
+  "hp": 60,
+  "types": [
+    "Fire"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless"
+      ],
+      "name": "Venoshock",
+      "effect": "If your opponent's Active Pokémon is Poisoned, this attack does 40 more damage.",
+      "damage": 10
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-072",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/072",
+  "localId": "072",
+  "name": "Vaporeon",
+  "hp": 120,
+  "types": [
+    "Water"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Water",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Wave Splash",
+      "damage": 60
+    }
+  ],
+  "retreat": 2,
+  "evolveFrom": "Eevee"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-073",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/073",
+  "localId": "073",
+  "name": "Dedenne",
+  "hp": 60,
+  "types": [
+    "Lightning"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Lightning"
+      ],
+      "name": "Thunder Shock",
+      "effect": "Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed.",
+      "damage": 10
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-074",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/074",
+  "localId": "074",
+  "name": "Marshadow",
+  "hp": 80,
+  "types": [
+    "Fighting"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Fighting",
+        "Colorless"
+      ],
+      "name": "Revenge",
+      "effect": "If any of your Pokémon were Knocked Out by damage from an attack during your opponent's last turn, this attack does 60 more damage.",
+      "damage": 40
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-075",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/075",
+  "localId": "075",
+  "name": "Celebi ex",
+  "hp": 130,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Grass",
+        "Colorless"
+      ],
+      "name": "Powerful Bloom",
+      "effect": "Flip a coin for each Energy attached to this Pokémon. This attack does 50 damage for each heads.",
+      "damage": 50
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-076",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/076",
+  "localId": "076",
+  "name": "Gyarados ex",
+  "hp": 180,
+  "types": [
+    "Water"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Water",
+        "Water",
+        "Water",
+        "Colorless"
+      ],
+      "name": "Rampaging Whirlpool",
+      "effect": "Discard a random Energy from among the Energy attached to all Pokémon (both yours and your opponent's).",
+      "damage": 140
+    }
+  ],
+  "retreat": 3,
+  "evolveFrom": "Magikarp"
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-077",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/077",
+  "localId": "077",
+  "name": "Mew ex",
+  "hp": 130,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic"
+      ],
+      "name": "Psyshot",
+      "damage": 20
+    },
+    {
+      "cost": [
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Genome Hacking",
+      "effect": "Choose 1 of your opponent's Active Pokémon's attacks and use it as this attack."
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-078",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/078",
+  "localId": "078",
+  "name": "Aerodactyl ex",
+  "hp": 140,
+  "types": [
+    "Fighting"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Fighting",
+        "Colorless"
+      ],
+      "name": "Land Crush",
+      "damage": 80
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-079",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/079",
+  "localId": "079",
+  "name": "Pidgeot ex",
+  "hp": 170,
+  "types": [
+    "Colorless"
+  ],
+  "stage": "Stage2",
+  "attacks": [
+    {
+      "cost": [
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Scattering Cyclone",
+      "effect": "This attack does 20 more damage for each of your opponent's Benched Pokémon.",
+      "damage": 80
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": "Pidgeotto"
+}
+,
+{
+  "category": "Trainer",
+  "id": "A1a-080",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/080",
+  "localId": "080",
+  "name": "Budding Expeditioner",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "A1a-081",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/081",
+  "localId": "081",
+  "name": "Blue",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Trainer",
+  "id": "A1a-082",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/082",
+  "localId": "082",
+  "name": "Leaf",
+  "hp": null,
+  "types": null,
+  "stage": null,
+  "attacks": null,
+  "retreat": null,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-083",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/083",
+  "localId": "083",
+  "name": "Mew ex",
+  "hp": 130,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic"
+      ],
+      "name": "Psyshot",
+      "damage": 20
+    },
+    {
+      "cost": [
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Genome Hacking",
+      "effect": "Choose 1 of your opponent's Active Pokémon's attacks and use it as this attack."
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-084",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/084",
+  "localId": "084",
+  "name": "Aerodactyl ex",
+  "hp": 140,
+  "types": [
+    "Fighting"
+  ],
+  "stage": "Stage1",
+  "attacks": [
+    {
+      "cost": [
+        "Fighting",
+        "Colorless"
+      ],
+      "name": "Land Crush",
+      "damage": 80
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-085",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/085",
+  "localId": "085",
+  "name": "Celebi ex",
+  "hp": 130,
+  "types": [
+    "Grass"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Grass",
+        "Colorless"
+      ],
+      "name": "Powerful Bloom",
+      "effect": "Flip a coin for each Energy attached to this Pokémon. This attack does 50 damage for each heads.",
+      "damage": 50
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+,
+{
+  "category": "Pokemon",
+  "id": "A1a-086",
+  "image": "https://assets.tcgdex.net/en/tcgp/A1a/086",
+  "localId": "086",
+  "name": "Mew ex",
+  "hp": 130,
+  "types": [
+    "Psychic"
+  ],
+  "stage": "Basic",
+  "attacks": [
+    {
+      "cost": [
+        "Psychic"
+      ],
+      "name": "Psyshot",
+      "damage": 20
+    },
+    {
+      "cost": [
+        "Colorless",
+        "Colorless",
+        "Colorless"
+      ],
+      "name": "Genome Hacking",
+      "effect": "Choose 1 of your opponent's Active Pokémon's attacks and use it as this attack."
+    }
+  ],
+  "retreat": 1,
+  "evolveFrom": null
+}
+]

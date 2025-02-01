@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # ====================================================
-# Script to Fetch TCGDex Card Information and Populate cards.js
+# Script to Fetch TCGDex Card Information and Populate JSON Files
 # ====================================================
 #
 # This script retrieves card information from specified sets
-# using the TCGDex API and appends the selected data to a
-# JavaScript file (`cards.js`).
+# using the TCGDex API and saves the selected data to separate
+# JSON files in the `js/sets/` directory.
 #
 # Requirements:
 # - curl
@@ -25,10 +25,14 @@
 API_HOST="https://api.tcgdex.net/v2/en"
 
 # List of set codes to process (add/remove sets here)
+# To add new sets:
+# 1. Update this list with the new set code(s)
+# 2. Add the set code to js/app.js in the `setCodes` array
+# 3. Run this script
 SETS=("A1" "A1a" "P-A")
 
-# Output file path
-OUTPUT_FILE="js/cards.js"
+# Output directory path
+OUTPUT_DIR="sets"
 
 # Number of cards to fetch per set (useful for testing; set to empty for all)
 CARD_LIMIT=""
@@ -67,6 +71,15 @@ fetch_set_cards() {
         card_ids=$(echo "$card_ids" | head -n "$CARD_LIMIT")
     fi
 
+    # Ensure the output directory exists
+    mkdir -p "$OUTPUT_DIR"
+    local output_file="$OUTPUT_DIR/$set_code.json"
+
+    # Initialize/Empty the output file
+    echo "[" > "$output_file"
+
+    local first_entry=true
+    
     # Iterate over each card ID and fetch card details
     for card_id in $card_ids; do
         echo "  Fetching card data for ID: $card_id"
@@ -87,27 +100,26 @@ fetch_set_cards() {
         extracted=$(echo "$card_data" | jq '{category, id, image, localId, name, hp, types, stage, attacks, retreat, evolveFrom}')
 
         # Append the extracted data to the output file
-        echo "$extracted," >> "$OUTPUT_FILE"
+        if [ "$first_entry" = true ]; then
+            first_entry=false
+        else
+            echo "," >> "$output_file"
+        fi
+        echo "$extracted" >> "$output_file"
     done
+
+    # Close the JSON array in the output file
+    echo "]" >> "$output_file"
+    echo "Set $set_code processed. Data saved to $output_file"
 }
 
 # --------------------
 # Main Script Execution
 # --------------------
 
-# Ensure the output directory exists
-mkdir -p "$(dirname "$OUTPUT_FILE")"
-
-# Initialize/Empty the output file
-echo "// Auto-generated cards data" > "$OUTPUT_FILE"
-echo "const cards = [" >> "$OUTPUT_FILE"
-
 # Iterate over each set and fetch card data
 for set_code in "${SETS[@]}"; do
     fetch_set_cards "$set_code"
 done
 
-# Close the JavaScript array in the output file
-echo "];" >> "$OUTPUT_FILE"
-
-echo "All sets processed. Data saved to $OUTPUT_FILE"
+echo "All sets processed. Data saved in $OUTPUT_DIR"

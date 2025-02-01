@@ -11,10 +11,39 @@
  *  - Add support for the psyhic item.
  *  - Add support for caterpie.
  */
+
+/* Fetch all sets */
+async function fetchAllSets () {
+  /* To add new sets:
+    1. Update this array.
+    2. Update the SETS array in build/fetch_sets.sh.
+    3. Run fetch_sets.sh
+  */
+  const setCodes = ['A1', 'A1a', 'P-A']
+  const allCards = []
+
+  for (const setCode of setCodes) {
+    try {
+      const response = await fetch(`sets/${setCode}.json`)
+      if (!response.ok) {
+        console.error(`Failed to fetch ${setCode}: ${response.status}`)
+        continue
+      }
+      const cards = await response.json()
+      allCards.push(...cards)
+    } catch (error) {
+      console.error(`Error fetching set ${setCode}:`, error)
+    }
+  }
+
+  return allCards
+}
+
 function pokemonSimulator () {
   return {
     deckSelectInstance: null,
     targetSelectInstance: null,
+    allCards: null,
     allCardsMap: null,
 
     /**
@@ -57,7 +86,17 @@ function pokemonSimulator () {
       this.$refs.logContainer.innerHTML = ''
     },
 
-    initChoices () {
+    /* Load all cards */
+    async loadCards () {
+      if (!this.allCards) {
+        this.allCards = await fetchAllSets()
+      }
+    },
+
+    /* Initialize the deck and target choices */
+    async initChoices () {
+      await this.loadCards()
+
       // 1) Deck select
       this.deckSelectInstance = new Choices(this.$refs.deckSelect, {
         removeItemButton: true,
@@ -182,7 +221,7 @@ function pokemonSimulator () {
      */
     getCardLabelOptions () {
       const labels = []
-      for (let c of cards) {
+      for (let c of this.allCards) {
         if (c.name == 'Placeholder') {
           continue
         }
@@ -238,7 +277,7 @@ function pokemonSimulator () {
       if (!this.allCardsMap) {
         // Build it once
         this.allCardsMap = {}
-        for (let c of window.cards || []) {
+        for (let c of this.allCards || []) {
           // your real data might store c.name as a string or c.name.en
           // adapt as needed
           const cardName = c.name
