@@ -49,6 +49,12 @@
       <li>Choose up to 20 cards (the simulator will fill in to make a full deck).</li>
       <li>Inlcude <i>all</i> basic pokemon and draw-related trainer cards.</li>
       <li>Choose the cards you're targetting to play (i.e. <kbd>Ninetails</kbd>, <kbd>Blaine</kbd>).</li>
+      <li>If you want to simulate OR-logic with multiple target groups, (i.e. <kbd>Ninetails</kbd>, <kbd>Blaine</kbd> OR <kbd>Magmar</kbd>, <kbd>Blaine</kbd>) use the "Add Target Set" button.</li>
+    </ul>
+
+    <b>Limitations</b>
+    <ul>
+      <li>Pokemon Connection and Team Galactic Grunt not yet supported.
     </ul>
 
     <form
@@ -62,14 +68,29 @@
         <select id="deckSelection" multiple x-ref="deckSelect"></select>
       </fieldset>
 
-      <fieldset>
-        <legend>Target Cards</legend>
-        <label for="targetCards"
-          >Pick which card(s) you’re aiming to play:</label
-        >
-        <select id="targetCards" multiple x-ref="targetCards"></select>
-      </fieldset>
+      <div class="target-groups">
+        <template x-for="(group, gIndex) in targetGroups" :key="group.id">
+          <fieldset>
+            <legend
+              x-text="
+                gIndex === 0
+                  ? `Target Cards (Group ${gIndex + 1})`
+                  : `OR Target Group (Group ${gIndex + 1})`
+              "
+            ></legend>
+            <label :for="'targetSelect' + group.id">
+              Pick the cards for this group:
+            </label>
+            <select
+              :id="'targetSelect' + group.id"
+              multiple
+              x-ref="group.targetSelect"
+            ></select>
+          </fieldset>
+        </template>
+      </div>
 
+      <button type="button" @click="addTargetGroup()">Add Target Set</button>
       <button type="submit">Run Simulation</button>
 
       <!-- New fieldset (or div) for log output -->

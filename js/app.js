@@ -41,10 +41,12 @@ async function fetchAllSets () {
 
 function pokemonSimulator () {
   return {
+    targetGroups: [], // each element: { id, choicesInstance }
+    nextTargetGroupId: 1, // used for unique IDs
     deckSelectInstance: null,
-    targetSelectInstance: null,
     allCards: null,
     allCardsMap: null,
+    isSyncing: false, // guard against removing items during sync
 
     /**
      * Append an info message to the log output area.
@@ -125,10 +127,63 @@ function pokemonSimulator () {
         this.handleRemoveDeckItem(removed)
       })
 
-      // 2) Target select
-      this.targetSelectInstance = new Choices(this.$refs.targetCards, {
-        removeItemButton: true,
-        placeholderValue: 'Pick your target cards...'
+      // 2) Initialize at least one target group by default
+      this.addTargetGroup()
+    },
+
+    /**
+     * Dynamically create a new target group & init a separate Choices instance.
+     */
+    addTargetGroup () {
+      console.log('Adding a new target group...')
+      console.log('Current target groups:', this.targetGroups)
+      const newId = this.nextTargetGroupId++
+      // The 'savedSelections' array will track the user's currently selected items
+      this.targetGroups.push({
+        id: newId,
+        choicesInstance: null,
+        savedSelections: []
+      })
+
+      // Wait for Alpine to finish rendering
+      this.$nextTick(() => {
+        const selectEl = document.getElementById('targetSelect' + newId)
+        const instance = new Choices(selectEl, {
+          removeItemButton: true,
+          placeholderValue: 'Pick your target cards...'
+        })
+
+        // Save the instance
+        const groupObj = this.targetGroups.find(g => g.id === newId)
+        if (!groupObj) return
+        groupObj.choicesInstance = instance
+
+        // --- NEW: set up event listeners to track selections
+        const choicesEl = instance.passedElement.element
+        choicesEl.addEventListener('addItem', evt => {
+          if (this.isSyncing) return // ignore forced UI updates
+          const val = evt.detail.value
+          if (!groupObj.savedSelections.includes(val)) {
+            groupObj.savedSelections.push(val)
+          }
+        })
+
+        choicesEl.addEventListener('removeItem', evt => {
+          console.log(
+            'removeItem event:',
+            evt.detail,
+            'isSyncing:',
+            this.isSyncing
+          )
+          if (this.isSyncing) return // ignore forced UI updates
+          const val = evt.detail.value
+          groupObj.savedSelections = groupObj.savedSelections.filter(
+            x => x !== val
+          )
+        })
+
+        // Finally, populate the new group's choices
+        this.updateTargetChoices()
       })
     },
 
@@ -168,52 +223,51 @@ function pokemonSimulator () {
       this.updateTargetChoices()
     },
 
+    /**
+     * Update all target-groups' available choices based on current deck contents.
+     */
     updateTargetChoices () {
-      // 1) Grab the *current* selected deck items
+      this.isSyncing = true // turn on guard
+
+      // 1) Derive the valid deck-based labels from the deck...
       const selectedDeckItems = this.deckSelectInstance
         .getValue(true)
         .map(x => {
-          const label = x.value ? x.value : x // handle the object or string
+          const label = x.value ? x.value : x
           const { id, baseName } = this.parseLabel(label)
-          return this.toLabel(id, baseName, null) // e.g. "(A1-001) Bulbasaur"
+          return this.toLabel(id, baseName, null)
         })
-
-      // 2) Unique base names from the deck
       const uniqueBaseNames = Array.from(new Set(selectedDeckItems))
 
-      // 3) Let's keep track of what the user *currently* has selected in the target
-      const oldTargetSelections = this.targetSelectInstance
-        .getValue(true)
-        .map(x => (x.value ? x.value : x))
+      // 2) For each target group:
+      this.targetGroups.forEach(group => {
+        const inst = group.choicesInstance
+        if (!inst) return
 
-      // 4) Clear out the *entire list* of target choices
-      this.targetSelectInstance.removeActiveItems()
+        // (A) Clear existing selections from the UI
+        inst.removeActiveItems()
+        inst.clearChoices()
 
-      // 5) Build new target choices based on the current deck
-      const newTargetChoices = uniqueBaseNames.map(bn => ({
-        value: bn,
-        label: bn
-      }))
-      this.targetSelectInstance.setChoices(
-        newTargetChoices,
-        'value',
-        'label',
-        true
-      )
+        // (B) Build new deck-based choices
+        const newChoices = uniqueBaseNames.map(bn => ({
+          value: bn,
+          label: bn
+        }))
+        // Replace old choices with the new set
+        inst.setChoices(newChoices, 'value', 'label', true)
 
-      // 6) Reselect items that were *previously* selected if they still exist
-      //    in the new set of uniqueBaseNames
-      const stillValidSelections = oldTargetSelections.filter(bn =>
-        uniqueBaseNames.includes(bn)
-      )
+        // (C) Re-select items from group.savedSelections that are still valid
+        const stillValid = group.savedSelections.filter(bn =>
+          uniqueBaseNames.includes(bn)
+        )
+        stillValid.forEach(bn => {
+          inst.setChoiceByValue(bn)
+        })
 
-      // For each still-valid selection, tell Choices to select it again
-      stillValidSelections.forEach(bn => {
-        this.targetSelectInstance.setChoiceByValue(bn)
+        // (D) Update group.savedSelections to match only the still-valid items
+        group.savedSelections = stillValid
       })
-
-      // If something was previously selected but is no longer valid, it simply
-      // won't be reselected -> effectively it's removed from the user's selection.
+      this.isSyncing = false // turn off guard
     },
 
     /**
@@ -445,24 +499,26 @@ function pokemonSimulator () {
         }
       })
 
-      numGames = 10000
-
       // A deck should be 20 cards, so we'll pad it with Placeholder cards
       while (deckArray.length < 20) {
         deckArray.push('Placeholder')
       }
 
-      // 2) Gather target names from targetSelect
-      const targetNames = this.targetSelectInstance
-        .getValue(true)
-        .map(item => item.value || item)
-      // e.g. ["Ninetails","Blaine"]
+      // 2) Gather all target groups (each is an array of card names)
+      //    Example: [ ["Ninetails","Blaine"], ["SomeOtherCard"] ]
+      const allTargetSets = this.targetGroups.map(group => {
+        if (!group.choicesInstance) return []
+        return group.choicesInstance
+          .getValue(true)
+          .map(item => item.value || item)
+      })
 
       // 3) Run the simulation
       this.logInfo('=== Running Simulation ===')
+      const numGames = 10000
       const distribution = this.simulateMultipleGames(
         deckArray,
-        targetNames,
+        allTargetSets,
         numGames
       )
 
@@ -478,12 +534,13 @@ function pokemonSimulator () {
 
     /**
      * @param {string[]} deckArray    e.g. ["Vulpix","Vulpix","Pokeball",...]
-     * @param {string[]} targetNames  e.g. ["Ninetails","Blaine"]
+     * @param {string[]} targetSets  e.g. [["Ninetails","Blaine"], ["Magmar","Blaine"]]
      * @param {number} numGames       default=1000
      * @returns {number[]} distribution array (length = MAX_TURNS+1)
      *    distribution[t] = fraction (0..1) of games that meet the target by turn t
+     *    The result distribution is for "success in at least one target set" by turn T.
      */
-    simulateMultipleGames (deckArray, targetNames, numGames) {
+    simulateMultipleGames (deckArray, targetSets, numGames) {
       this.logInfo(`Simulating ${numGames} games...`)
       const MAX_TURNS = 10
       const earliestTurns = []
@@ -491,34 +548,30 @@ function pokemonSimulator () {
       for (let i = 0; i < numGames; i++) {
         let turnMet
         try {
-          turnMet = this.singleGameSimulation(deckArray, targetNames, MAX_TURNS)
+          turnMet = this.singleGameSimulation(deckArray, targetSets, MAX_TURNS)
         } catch (err) {
           this.logError(`Error in game ${i + 1}: ${err.message}`)
           // abort
           return new Array(MAX_TURNS + 1).fill(0)
         }
-        earliestTurns.push(turnMet) // integer or null
+        earliestTurns.push(turnMet)
       }
 
-      // Build distribution: distribution[t] = fraction of sims that succeed BY turn t
+      // distribution[t] = fraction of sims that succeed BY turn t
       const distribution = new Array(MAX_TURNS + 1).fill(0)
 
       for (let et of earliestTurns) {
         if (et === null) {
-          // never succeeded
-          continue
+          continue // never succeeded
         }
-        // If earliest success is et, that means success by turn et, and all subsequent turns
         for (let t = et; t <= MAX_TURNS; t++) {
           distribution[t]++
         }
       }
 
-      // Convert counts to fraction
       for (let t = 0; t <= MAX_TURNS; t++) {
         distribution[t] = distribution[t] / numGames
       }
-
       return distribution
     },
 
@@ -561,99 +614,83 @@ function pokemonSimulator () {
      *
      * @returns {number|null} earliest turn (0..maxTurns) success, or null if never
      */
-    singleGameSimulation (deckArray, targetNames, maxTurns) {
-      // 0) Confirm that there is at least 1 Basic in the deck
-      if (!deckArray.some(cn => this.isBasicPokemon(cn))) {
-        throw new Error('No Basic Pokémon in deck!')
-      }
-
-      // 1) Copy & shuffle deck
-      const deck = deckArray.slice()
+    singleGameSimulation (deckArray, targetSets, maxTurns) {
+      // (unchanged mulligan, shuffle, etc. from your original)
+      // ...
+      let deck = deckArray.slice()
       this.shuffle(deck)
 
-      // 2) Mulligan until we have at least 1 Basic in top 5
+      // Mulligan logic (unchanged)
       let hand = []
-
       while (true) {
-        // draw top 5
         hand = deck.splice(0, 5)
-
-        // if there's at least one Basic, we're good
-        if (hand.some(cardName => this.isBasicPokemon(cardName))) {
+        if (hand.some(cn => this.isBasicPokemon(cn))) {
           break
         } else {
-          // otherwise, put them back, reshuffle, and try again
           deck.push(...hand)
           this.shuffle(deck)
         }
       }
 
-      // 3) "In play" array will track { name, stage, turnPlayed }
       let inPlay = []
+      // Immediately play basics
+      this.playAllBasics(inPlay, hand, 0)
 
-      // 4) Immediately play all "target" Basics from opening hand (turn 0)
-      this.playAllBasics(inPlay, hand, 0, targetNames)
-
-      // 4a) If we meet the target condition after playing them at turn 0, return 0
-      if (this.checkTargetsMet(targetNames, hand, inPlay)) {
+      // Check at turn 0
+      if (this.checkAnyTargetSetMet(targetSets, hand, inPlay)) {
         return 0
       }
 
-      // 5) Simulate each turn
       for (let turn = 1; turn <= maxTurns; turn++) {
-        // (a) Draw 1 card (if available)
+        // draw 1
         if (deck.length > 0) {
           hand.push(deck.shift())
         }
-
-        // (b) Use all Poké Balls (fetch Basic)
+        // use pokeballs
         this.useAllPokeballs(hand, deck)
-
-        // (c) Use up to ONE Professor's Research (draw 2)
+        // research
         this.useOneProfessorResearch(hand, deck)
-
-        // (d) Play *all* Basic Pokémon in the target list (if any in hand)
-        this.playAllBasics(inPlay, hand, turn, targetNames)
-
-        // (e) Attempt to evolve any Stage1/Stage2 if possible
-        //     (only from Basics/Stage1 played on a previous turn: turnPlayed < currentTurn)
+        // play basics
+        this.playAllBasics(inPlay, hand, turn)
+        // evolve
         this.evolvePokemon(inPlay, hand, turn)
 
-        // (f) Check if we meet the target condition now
-        if (this.checkTargetsMet(targetNames, hand, inPlay)) {
+        // Check
+        if (this.checkAnyTargetSetMet(targetSets, hand, inPlay)) {
           return turn
         }
       }
 
-      // If we never achieve the target by maxTurns, return null
       return null
     },
 
     /**
-     * Check if targets are met.
+     * OR-logic check: If ANY group is satisfied, return true.
+     */
+    checkAnyTargetSetMet (targetSets, hand, inPlay) {
+      // If there's at least one group fully met => success
+      return targetSets.some(group =>
+        this.checkSingleTargetSetMet(group, hand, inPlay)
+      )
+    },
+
+    /**
+     * Check if *one* group’s targets are all satisfied:
      *   - If target is a Pokemon => must be in inPlay
      *   - If target is a Trainer => must be in hand
-     *
-     * Returns true if all targets are met, false otherwise.
      */
-    checkTargetsMet (targetNames, hand, inPlay) {
-      // We interpret Pokemon targets as "must be in play"
-      // and Trainer targets as "must be in hand."
+    checkSingleTargetSetMet (targetNames, hand, inPlay) {
       for (let tName of targetNames) {
         const { baseName } = this.parseLabel(tName)
         if (this.isPokemon(baseName)) {
-          // Must be in inPlay
           const found = inPlay.some(p => p.name === baseName)
           if (!found) return false
         } else if (this.isTrainer(baseName)) {
-          // Must be in hand
           if (!hand.includes(baseName)) return false
         } else {
-          // Unrecognized type => fail
-          throw new Error(`Unknown target type: ${base}`)
+          throw new Error(`Unknown target type: ${baseName}`)
         }
       }
-      // if we never returned false, all targets are satisfied
       return true
     }
   }
